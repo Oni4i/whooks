@@ -38,30 +38,39 @@ if (isset($_GET['get_accounts'])) {
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $request);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
     $out = curl_exec($curl);
     curl_close($curl);
 
     writeLogs("Получен ответ от процессинга " . $out);
+    try {
+        $xml = new SimpleXMLElement($out);
+        foreach ($xml->table->colvalues as $element) {
+            $cards = $element->type_text_val;
+            if (!empty($cards)) {
 
-    $xml = new SimpleXMLElement($out);
-    foreach ($xml->table->colvalues as $element) {
-        $cards = $element->type_text_val;
-        if (!empty($cards)) {
+                $cards = explode("|", $cards);
+            }
 
-            $cards = explode("|", $cards);
+            $tokens = $element->type_num_val;
+
+            if (!empty($tokens)) {
+
+                $tokens = explode("|", $tokens);
+            }
         }
 
-        $tokens = $element->type_num_val;
+        $result = json_encode(array("cards" => $cards, "tokens" => $tokens));
+        writeLogs("Возвращаю  " . $result . "\n____________________");
+    } catch (Exception $e) {
 
-        if (!empty($tokens)) {
-
-            $tokens = explode("|", $tokens);
-        }
+        writeLogs("Ошибка  " . $e->getMessage() . "\n____________________");
     }
 
-    $result = json_encode(array("cards" => $cards, "tokens" => $tokens));
 
-    writeLogs("Возвращаю  " . $result . "\n____________________");
+
+
 
     echo empty($cards) ? json_encode("Empty") : $result;
 

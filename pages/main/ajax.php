@@ -110,8 +110,9 @@ if (isset($_GET['get_accounts'])) {
     curl_close($ch);
     writeLogs("Получен ответ от QIWI $result");
     $result = json_decode($result);
+    $result = json_encode($result);
     writeLogs("Возвращаю $result \n____________________");
-    echo json_encode($result);
+    echo $result;
 
 } else if (isset($_GET['save_web_hook']) && isset($_GET['code']) && isset($_GET['phone'])
     && isset($_GET['wallet_token']) && isset($_GET['date']) && isset($_GET['account'])

@@ -293,7 +293,7 @@ document.getElementById('submit').addEventListener('click', function (event) {
             })
                 .then(() => {
                 let phoneNumber = phone[0] == "+" ? phone.substring(1) : phone;
-                saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${phone}&wallet_token=${token}&date=${date}&account=${lastSelectedCode}&card_token=${lastSelectedCardToken}&hook_id=${parsedResponse['hookId']}&secret_key=${secretKey}`, function(response) {
+                saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${phoneNumber}&wallet_token=${token}&date=${date}&account=${lastSelectedCode}&card_token=${lastSelectedCardToken}&hook_id=${parsedResponse['hookId']}&secret_key=${secretKey}`, function(response) {
 
                     alert("Веб хук создан")
                 });

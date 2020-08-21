@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1fwlPNg1EvrTyBdBaQyRcGL35yp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nikita\Desktop\cabinet\pages\main" />
+      <recent name="C:\Users\Nikita\Desktop\cabinet\templates" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
+      <created>1597137011640</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597137011640</updated>
+      <workItem from="1597137012793" duration="4101000" />
+      <workItem from="1597151588186" duration="488000" />
+      <workItem from="1597152261796" duration="727000" />
+      <workItem from="1597227249926" duration="2926000" />
+      <workItem from="1597392198960" duration="16049000" />
+      <workItem from="1597579320249" duration="15198000" />
+      <workItem from="1597736771699" duration="28363000" />
+      <workItem from="1598006482002" duration="1062000" />
+      <workItem from="1598008034827" duration="9151000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="571" y="194" key="#CLI_Interpreters" timestamp="1597137063668">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="571" y="194" key="#CLI_Interpreters/62.0.1858.1080@62.0.1858.1080" timestamp="1597137063668" />
+    <state x="698" y="182" key="#PHP" timestamp="1597137067563">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="698" y="182" key="#PHP/62.0.1858.1080@62.0.1858.1080" timestamp="1597137067563" />
+    <state x="449" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597137108716">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="449" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1597137108716" />
+    <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597137720715">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1597137720715" />
+    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1597580174840">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1597580174840" />
+    <state x="492" y="184" key="SettingsEditor" timestamp="1597405738297">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1597405738297" />
+    <state x="647" y="250" key="run.anything.popup" timestamp="1597746724533">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="647" y="250" key="run.anything.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1597746724533" />
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1597758966486">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1597758966486" />
+  </component>
+</project>

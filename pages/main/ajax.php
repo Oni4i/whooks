@@ -135,9 +135,12 @@ if (isset($_GET['get_accounts'])) {
 
     /*"insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id)
 values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
-    $query = "insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id, secret_key)
-                values ($code, '$phone', '$wallet_token', '$date', $account, '$card_token', '$hook_id', '$secret_key')";
+    //$query = "insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id, secret_key)
+    //            values ($code, '$phone', '$wallet_token', '$date', $account, '$card_token', '$hook_id', '$secret_key')";
 
+    $query = "insert high_priority ignore into wallets set wallet_phone = $phone, wallet_token = $wallet_token, wallet_token_valid_date = $date,
+                processing_account = $account, card_token = $card_token, hook_id = $hook_id, secret_key = $secret_key
+                on duplicate key update wallet_phone = $phone, wallet_token = $wallet_token, wallet_token_valid_date = $date";
 
     writeLogs("Запрос $query");
 

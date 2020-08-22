@@ -4,8 +4,6 @@
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
       <workItem from="1597736771699" duration="28363000" />
       <workItem from="1598006482002" duration="1062000" />
       <workItem from="1598008034827" duration="9151000" />
-      <workItem from="1598026135214" duration="5645000" />
+      <workItem from="1598026135214" duration="8520000" />
     </task>
     <servers />
   </component>
@@ -84,10 +82,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1597405738297" />
-    <state x="647" y="250" key="run.anything.popup" timestamp="1597746724533">
+    <state x="647" y="250" key="run.anything.popup" timestamp="1598087823038">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="647" y="250" key="run.anything.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1597746724533" />
+    <state x="647" y="250" key="run.anything.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598087823038" />
     <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1597758966486">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

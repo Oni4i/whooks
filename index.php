@@ -7,7 +7,7 @@ if (isset($_POST) && isset($_POST["auth"])) {
 
 
     $isAuthRight = false;
-    if ($login == LOGIN && $password == PASSWORD) {
+    if ($login == LOGIN && $password == PASSWORDCABINET) {
         setcookie("auth", "ok", "/");
         header("Location: /cabinet/pages/main");
     }

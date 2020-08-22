@@ -1,9 +1,9 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/const.php";
 
 function connectToDb() {
-    //"192.168.122.1", "hybrid_dev", "gefNle2Rqv496pkYnaJV", "hybrid_dev"
-    //"127.0.0.1", "root", "root", "hybrid_dev"
-    $mysqli = new mysqli("127.0.0.1", "root", "root", "hybrid_dev");
+
+    $mysqli = new mysqli(HOST, USERNAMEDB, PASSWORDDB, DBNAME);
     if ($mysqli->connect_errno) {
         echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }

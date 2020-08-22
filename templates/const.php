@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/config.php";
 
 define("PUT_HEADERS", array(
     'Authorization: Bearer 4b8e4a4c1d95da3236c3ea5ffb113e36',
@@ -6,8 +7,4 @@ define("PUT_HEADERS", array(
 ));
 
 define("URL_QIWI_WEBHOOK", "https://edge.qiwi.com/payment-notifier/v1/hooks");
-
-define("LOGIN", "hybrid_dev");
-
-define("PASSWORD", "gefNle2Rqv496pkYnaJV");
 

@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
       <workItem from="1597736771699" duration="28363000" />
       <workItem from="1598006482002" duration="1062000" />
       <workItem from="1598008034827" duration="9151000" />
-      <workItem from="1598026135214" duration="3353000" />
+      <workItem from="1598026135214" duration="5645000" />
     </task>
     <servers />
   </component>

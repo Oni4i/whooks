@@ -97,7 +97,7 @@ let card_list = document.getElementById("exampleFormControlSelect2");
 let parsedAccounts;
 
 let lastSelectedCode;
-let lastSelectedCardToken;
+//let lastSelectedCardToken;
 let hookId;
 let secretKey;
 
@@ -116,7 +116,7 @@ getAjaxResponse("get_accounts", insertAccounts, account_list, ["uid", "name"], f
         lastSelectedCode = requiredArray['code'];
 
         getAjaxResponse(`get_cards&login=${login}&password=${password}`, processingCards, card_list, "ITSCOUNTER", function (response) {
-            lastSelectedCardToken = card_list.value
+            //lastSelectedCardToken = card_list.value
         })
 
 
@@ -128,7 +128,7 @@ getAjaxResponse("get_accounts", insertAccounts, account_list, ["uid", "name"], f
             lastSelectedCode = requiredArray['code'];
 
             getAjaxResponse(`get_cards&login=${login}&password=${password}`, processingCards, card_list, "ITSCOUNTER", function (response) {
-                lastSelectedCardToken = card_list.value
+                //lastSelectedCardToken = card_list.value
             })
         })
     })
@@ -259,6 +259,7 @@ document.getElementById('submit').addEventListener('click', function (event) {
     let phone = document.getElementById('inputPhone').value
     let token = document.getElementById('inputToken').value
     let date = document.getElementById('inputDate').value
+    let lastSelectedCardToken = card_list.value
 
     if (!isValidForm(document.getElementById('inputPhone'), document.getElementById('inputToken'), document.getElementById('inputDate'), document.getElementById('exampleFormControlSelect2'))) {
         return

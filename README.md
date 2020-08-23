@@ -8,7 +8,7 @@
 * DBNAME - название базы данных
 * LOGIN - логин для входа в кабинет
 * PASSWORDCABINET - пароль для входа в кабинет
-3. Создать таблицы processing_accounts, settings и wallets в базе данных скриптом:
+3. Создать таблицы processing_accounts, settings и wallets в базе данных скриптами:
 * CREATE TABLE `processing_accounts` (
  `code` int(11) NOT NULL AUTO_INCREMENT,
  `uid` bigint(15) NOT NULL,

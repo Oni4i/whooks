@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/08.22.20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/08.22.20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/const.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/const.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +26,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\openServer\domains\gate\cabinet" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nikita\Desktop\cabinet\pages\main" />
       <recent name="C:\Users\Nikita\Desktop\cabinet\templates" />
@@ -53,7 +55,8 @@
       <workItem from="1597736771699" duration="28363000" />
       <workItem from="1598006482002" duration="1062000" />
       <workItem from="1598008034827" duration="9151000" />
-      <workItem from="1598026135214" duration="9533000" />
+      <workItem from="1598026135214" duration="10416000" />
+      <workItem from="1598115049125" duration="1144000" />
     </task>
     <servers />
   </component>
@@ -77,10 +80,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1597137720715" />
-    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1598089105877">
+    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1598089661458">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598089105877" />
+    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598089661458" />
     <state x="492" y="184" key="SettingsEditor" timestamp="1597405738297">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -89,9 +92,9 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="647" y="250" key="run.anything.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598087823038" />
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1597758966486">
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598115131564">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1597758966486" />
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598115131564" />
   </component>
 </project>

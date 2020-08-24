@@ -36,7 +36,7 @@ if (isset($_GET['get_accounts'])) {
     $password = encryptPassword($_GET['password'], $transact);
     $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
 
-    $params += "&login=$login";
+    //$params += "&login=$login";
     $request = "$url/$file?$params";
 
     writeLogs("Отправляю запрос на получение карт " . $request);
@@ -143,9 +143,9 @@ values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
     //$query = "insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id, secret_key)
     //            values ($code, '$phone', '$wallet_token', '$date', $account, '$card_token', '$hook_id', '$secret_key')";
 
-    $query = "insert high_priority ignore into wallets set wallet_phone = $phone, wallet_token = $wallet_token, wallet_token_valid_date = $date,
-                processing_account = $account, card_token = $card_token, hook_id = $hook_id, secret_key = $secret_key
-                on duplicate key update wallet_phone = $phone, wallet_token = $wallet_token, wallet_token_valid_date = $date";
+    $query = "insert high_priority ignore into wallets set wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
+                processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key'
+                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date'";
 
     writeLogs("Запрос $query");
 

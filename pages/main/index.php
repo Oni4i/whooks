@@ -1,36 +1,12 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v4.1.1">
-  <title>Gate</title>
+<?php
+require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/ajax.php";
+?>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/floating-labels/">
-
   <!-- Bootstrap core CSS -->
-    <link href="./../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <!-- Custom styles for this template -->
   <link href="index.css" rel="stylesheet">
 </head>
 
@@ -44,39 +20,112 @@
         <th scope="col">Срок действия токена</th>
         <th scope="col">Аккаунт процессинга</th>
         <th scope="col">Токенизированная карта</th>
-        <th scope="col"><button type="button" class="btn btn-success d-block mx-auto">Добавить</button></th>
+          <th scope="col"><a href="add/index.php"><button type="button" class="btn btn-success d-block mx-auto">Добавить</button></a></th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>89615440202</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td><button type="button" class="btn btn-danger d-block mx-auto">Удалить</button></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>89615440202</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td><button type="button" class="btn btn-danger d-block mx-auto">Удалить</button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>89615440202</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td>qweqwe</td>
-        <td><button type="button" class="btn btn-danger d-block mx-auto">Удалить</button></td>
-      </tr>
+    <tbody id="table_body">
     </tbody>
   </table>
-</body>
 
-</html>
+<script>
+
+    generateTableRows()
+
+    function generateTableRows() {
+        getAjaxRequest("get_wallets", function(response) {
+
+            try {
+
+                let parsedResponse = JSON.parse(response);
+
+                if (parsedResponse != null && parsedResponse.length > 0) {
+
+                    parsedResponse.forEach(arr => {
+
+                        createTableRow(arr['code'], arr['wallet_phone'],
+                        arr['wallet_token'], arr['wallet_token_valid_date'],
+                        arr['login'], arr['card_token'])
+                    })
+                }
+            } catch (e) {
+
+                console.log(e)
+            }
+        })
+    }
+
+    function getAjaxRequest(request, callback) {
+
+        return fetch("ajax.php?" + request,
+            {
+                method: "GET",
+                headers:{"content-type":"application/json"}
+            })
+            .then(response => {
+                if (response.status !== 200) {
+                    return Promise.reject();
+                }
+                return response.text()
+            })
+            .then(response => {
+                if (callback)
+                    callback(response);
+            })
+            .catch((e) => console.log(e))
+    }
+
+    function createTableRow(id, phone, wallet, date, login, card) {
+        let tr = document.createElement('tr');
+        let tableDataId = document.createElement('td');
+        let tableDataPhone = document.createElement('td');
+        let tableDataWallet = document.createElement('td');
+        let tableDataDate = document.createElement('td');
+        let tableDataLogin = document.createElement('td');
+        let tableDataCard = document.createElement('td');
+        let tableDataDelete = document.createElement('td');
+        let buttonDelete = document.createElement('button');
+
+        tableDataId.innerText = id;
+        tableDataPhone.innerText = phone;
+        tableDataWallet.innerText = wallet;
+        tableDataDate.innerText = date;
+        tableDataLogin.innerText = login;
+        tableDataCard.innerText = card;
+        buttonDelete.innerText = 'Удалить';
+        tableDataDelete.appendChild(buttonDelete);
+
+        tableDataId.scope = 'row';
+
+        buttonDelete.type = 'button';
+        buttonDelete.classList = 'btn btn-danger d-block mx-auto';
+        buttonDelete.dataset.account = id;
+        buttonDelete.addEventListener('click', function() {
+
+            if (buttonDelete.dataset.account) {
+
+                getAjaxRequest('delete_wallet&id=' + id + '&wallet=' + encode_utf8(wallet), function(response) {
+                    tr.remove();
+                })
+            }
+        })
+
+        tr.appendChild(tableDataId);
+        tr.appendChild(tableDataPhone);
+        tr.appendChild(tableDataWallet);
+        tr.appendChild(tableDataDate);
+        tr.appendChild(tableDataLogin);
+        tr.appendChild(tableDataCard);
+        tr.appendChild(tableDataDelete);
+
+        document.getElementById('table_body').appendChild(tr);
+    }
+
+    function encode_utf8(s) {
+        return unescape(encodeURIComponent(s));
+    }
+
+    function decode_utf8(s) {
+        return decodeURIComponent(escape(s));
+    }
+
+</script>

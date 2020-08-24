@@ -29,8 +29,13 @@ if (isset($_GET['get_accounts'])) {
     $program_sign = md5( $settings['processing_skeys'] . $transact); //
 
     $login = utf8_encode($_GET['login']);
+    if ($login[0] == "+" || $login[0] == " ") {
+        $login = substr($login, 1);
+    }
+
     $password = encryptPassword($_GET['password'], $transact);
     $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
+
     $params += "&login=$login";
     $request = "$url/$file?$params";
 

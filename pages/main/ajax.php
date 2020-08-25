@@ -86,6 +86,22 @@ if (isset($_GET['get_wallets'])) {
 
     writeLogs("Возвращаю $responseAjax");
 
-
     echo json_encode(array("response"=>$responseAjax));
+
+} else if (isset($_GET['get_income_webhooks'])) {
+
+    $query = "select inc, hook_date, hook_sum, hook_personId, hook_sum, dkcp_result, hook_errorCode from income_webhooks
+            where next_operation LIKE '%_error' limit 100";
+
+    writeLogs("Отправляю запрос на получение income_webhooks..." . $query);
+
+    $result = queryToDataBase($query);
+
+    writeLogs("Получен ответ...");
+
+    $result = json_encode($result);
+
+    writeLogs("Возвращаю " . $result . "\n____________________");
+
+    echo $result;
 }

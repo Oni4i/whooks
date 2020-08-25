@@ -36,7 +36,7 @@ if (isset($_GET['get_accounts'])) {
     $password = encryptPassword($_GET['password'], $transact);
     $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
 
-    //$params += "&login=$login";
+    $params += "&login=$login";
     $request = "$url/$file?$params";
 
     writeLogs("Отправляю запрос на получение карт " . $request);

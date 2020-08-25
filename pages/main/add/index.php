@@ -285,16 +285,16 @@ document.getElementById('submit').addEventListener('click', function (event) {
             hookId = parsedResponse['hookId']
             console.log(hookId)
 
-            getSecretKey(`get_secret_key&token=${token}&hook_id=${unescape(encodeURIComponent(hookId))}`, response => {
+            getSecretKey(`get_secret_key&token=${token}&hook_id=${encodeURI(hookId)}`, response => {
                 try {
                     secretKey = JSON.parse(response)['key']
                 } catch (e) {}
 
-                console.log(response)
             })
                 .then(() => {
                 let phoneNumber = phone[0] == "+" ? phone.substring(1) : phone;
-                saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${phoneNumber}&wallet_token=${token}&date=${date}&account=${lastSelectedCode}&card_token=${lastSelectedCardToken}&hook_id=${parsedResponse['hookId']}&secret_key=${encode_utf8(secretKey)}`, function(response) {
+                secretKey = encodeURIComponent(secretKey.toString());
+                saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${encodeURIComponent(phoneNumber)}&wallet_token=${encodeURIComponent(token)}&date=${date}&account=${encodeURIComponent(lastSelectedCode)}&card_token=${encodeURIComponent(lastSelectedCardToken)}&hook_id=${encodeURIComponent(parsedResponse['hookId'])}&secret_key=${secretKey}`, function(response) {
 
                     alert("Веб хук создан")
                 });
@@ -371,6 +371,8 @@ function encode_utf8(s) {
 function decode_utf8(s) {
     return decodeURIComponent(escape(s));
 }
+
+
 
 
 </script>

@@ -104,7 +104,7 @@ if (isset($_GET['get_accounts'])) {
 
 } else if (isset($_GET['get_secret_key']) && isset($_GET['token']) && isset($_GET['hook_id'])){
 
-    $hook_id = utf8_decode($_GET['hook_id']);
+    $hook_id = urldecode($_GET['hook_id']);
     $url = "https://edge.qiwi.com/payment-notifier/v1/hooks/$hook_id/key";
     writeLogs("Отправляю запрос на получение секретного ключа $url");
     $ch = curl_init($url);
@@ -127,16 +127,17 @@ if (isset($_GET['get_accounts'])) {
     writeLogs("Отправляю запрос на сохранение данных в бд");
 
     $code = $_GET['code'];
-    $phone = $_GET['phone'];
-    $wallet_token = $_GET['wallet_token'];
+    $phone = urldecode($_GET['phone']);
+    $wallet_token = urldecode($_GET['wallet_token']);
     $date = $_GET['date'];
-    $account = $_GET['account'];
-    $card_token = $_GET['card_token'];
-    $hook_id = utf8_decode($_GET['hook_id']);
-    $secret_key = utf8_decode($_GET['secret_key']);
+    $account = urldecode($_GET['account']);
+    $card_token = urldecode($_GET['card_token']);
+    $hook_id = urldecode($_GET['hook_id']);
+    $secret_key = $_GET['secret_key'];
 
 
-    
+    writeLogs("Получен secretKey " . $_GET['secret_key']);
+
 
     /*"insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id)
 values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
@@ -145,7 +146,7 @@ values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
 
     $query = "insert high_priority ignore into wallets set wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
                 processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key'
-                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date'";
+                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key'";
 
     writeLogs("Запрос $query");
 

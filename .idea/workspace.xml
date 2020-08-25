@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
+    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/add/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/add/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +14,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1fwlPNg1EvrTyBdBaQyRcGL35yp" />
@@ -33,6 +41,7 @@
       <workItem from="1597151588186" duration="488000" />
       <workItem from="1597152261796" duration="727000" />
       <workItem from="1597227249926" duration="2036000" />
+      <workItem from="1598339742165" duration="3626000" />
     </task>
     <servers />
   </component>
@@ -64,9 +73,9 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1597137034478" />
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1597159506236">
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598342634935">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1597159506236" />
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598342634935" />
   </component>
 </project>

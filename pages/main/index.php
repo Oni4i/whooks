@@ -104,7 +104,34 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/ajax.php";
             if (buttonDelete.dataset.account) {
 
                 getAjaxRequest('delete_wallet&id=' + id + '&wallet=' + encode_utf8(wallet), function(response) {
-                    tr.remove();
+
+                    try {
+
+                        let parsedResponse = JSON.parse(response);
+
+                        if (parsedResponse != null && parsedResponse != undefined) {
+
+                            let responseCode = parsedResponse['response'];
+
+                            if (responseCode == 200) {
+
+                                tr.remove();
+                            } else if (responseCode == 1) {
+
+                                alert("Удаление хука не удалось")
+                            } else if (responseCode == 2) {
+
+                                alert("Удаление хука прошло успешно, но требуется удалить запись из базы данных вручную");
+                            }  else {
+
+                                alert("Неизвестный ответ")
+                            }
+                        }
+
+                    } catch (e) {
+
+                        alert("Неизвестная ошибка от сервера")
+                    }
                 })
             }
         })

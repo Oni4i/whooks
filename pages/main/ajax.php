@@ -27,6 +27,8 @@ if (isset($_GET['get_wallets'])) {
     $wallet = $_GET['wallet'];
     $id = $_GET['id'];
 
+    $responseAjax = 200;
+
     writeLogs("Отправляю запрос на получение hook_id...");
 
     $query = "select hook_id from wallets where code=$id";
@@ -54,7 +56,7 @@ if (isset($_GET['get_wallets'])) {
     $result = curl_exec($ch);
     curl_close($ch);
 
-    writeLogs("Получен ответ WebHook..." . $result);
+    writeLogs("Получен ответ от QIWI..." . $result);
 
     $qiwiResponse = json_decode($result, true);
 
@@ -62,11 +64,29 @@ if (isset($_GET['get_wallets'])) {
 
         writeLogs("Успешное удаление хука");
 
-        
+        writeLogs("Отправляю запрос на удаление записи хука из базы данных...");
+        $query = "delete from wallets where code=$id";
+        $result = queryToDataBase($query);
+
+        if ($result) {
+
+            writeLogs("Удаление прошло успешно");
+
+        } else {
+
+            writeLogs("Удаление кода $id не произведено. Необходимо удалить самостоятельно");
+            $responseAjax = 2;
+        }
+
+
     } else {
 
         writeLogs("Неудачное удаление хука");
+        $responseAjax = 1;
     }
 
-    echo $result;
+    writeLogs("Возвращаю $responseAjax");
+
+
+    echo json_encode(array("response" => $responseAjax));
 }

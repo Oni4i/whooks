@@ -256,7 +256,9 @@ function insertCards(element, arrOfCards, arrOfTokens) {
 
 document.getElementById('submit').addEventListener('click', function (event) {
 
-
+    let phone = document.getElementById('inputPhone').value
+    let token = document.getElementById('inputToken').value
+    let date = document.getElementById('inputDate').value
     let lastSelectedCardToken = card_list.value
 
     if (!isValidForm(document.getElementById('inputPhone'), document.getElementById('inputToken'), document.getElementById('inputDate'), document.getElementById('exampleFormControlSelect2'))) {
@@ -291,10 +293,7 @@ document.getElementById('submit').addEventListener('click', function (event) {
                 console.log(response)
             })
                 .then(() => {
-                    let phone = document.getElementById('inputPhone').value
-                    let token = document.getElementById('inputToken').value
-                    let date = document.getElementById('inputDate').value
-                    let phoneNumber = phone[0] == "+" ? phone.substring(1) : phone;
+                let phoneNumber = phone[0] == "+" ? phone.substring(1) : phone;
                 saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${phoneNumber}&wallet_token=${token}&date=${date}&account=${lastSelectedCode}&card_token=${lastSelectedCardToken}&hook_id=${parsedResponse['hookId']}&secret_key=${secretKey}`, function(response) {
 
                     alert("Веб хук создан")

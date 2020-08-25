@@ -5,10 +5,9 @@ if (isset($_POST) && isset($_POST["auth"])) {
     $login = $_POST["login"];
     $password = $_POST["password"];
 
-
     $isAuthRight = false;
     if ($login == LOGIN && $password == PASSWORDCABINET) {
-        setcookie("auth", "ok", "/");
+        $_SESSION['auth'] = 'ok';
         header("Location: /cabinet/pages/main");
     }
 }
@@ -59,53 +58,7 @@ if (isset($_POST) && isset($_POST["auth"])) {
 </div>
 
 
-<!--
 
-
-<?php if (isset($isAuthRight) && !$isAuthRight) { ?>
-    <p style="color: red; font-size: 40px;">Wrong login/password</p>
-<?php } ?>
-    <form action="./index.php" method="post">
-        <label>
-            Логин<input type="text" id="login" name="login"
-                        value="<?= isset($_POST) && isset($_POST["login"]) ? $_POST["login"] : "" ?>" required>
-        </label>
-        <label>
-            Пароль<input type="password" id="password" name="password" required>
-        </label>
-        <input type="submit" name="auth">
-    </form>
--->
-<!--
-<form action="">
-    <label>
-        Телефон<input type="tel" name="telephone" id="telephone">
-    </label>
-    <label>
-        Токен кошелька<input type="text" name="token_wallet" id="token_wallet">
-    </label>
-    <label>
-        Срок действия токена<input type="date" name="validity" id="validity">
-    </label>
-    <label>
-        Аккаунт процессинга<input type = "text" list = "account">
-    </label>
-    <datalist id="account">
-        <option value="acc1" label="acc1">
-        <option value="acc2" label="acc2">
-        <option value="acc3" label="acc3">
-        <option value="acc4" label="acc4">
-    </datalist>
-    <label>
-        Токенизированная карта:<input type = "text" list = "token_card" id="token_card_input">
-    </label>
-    <datalist id="token_card">
-        <option value="token_card1" label="token_card1">
-        <option value="token_card2" label="token_card2">
-        <option value="token_card3" label="token_card3">
-    </datalist>
-</form>
--->
 
 
 <?php

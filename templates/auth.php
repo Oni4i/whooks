@@ -19,15 +19,17 @@ if (!isset($_COOKIE["auth"]) && getPageFromPath(getCurrectPath()) != "cabinet") 
 
 //ACTUAL
 
+
+
 if (getPageFromPath(getCurrectPath()) == "cabinet") {
 
-    if (isset($_COOKIE["auth"]) && $_COOKIE["auth"] == "ok") {
+    if (isset($_SESSION["auth"]) && $_SESSION["auth"] == "ok") {
 
         header("Location: /cabinet/pages/main");
     }
 } else {
 
-    if (isset($_COOKIE["auth"]) && $_COOKIE["auth"] == "ok") {
+    if (isset($_SESSION["auth"]) && $_SESSION["auth"] == "ok") {
 
     } else {
         header("Location: /cabinet");

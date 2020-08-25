@@ -4,8 +4,6 @@
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/add/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/add/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
       <workItem from="1597151588186" duration="488000" />
       <workItem from="1597152261796" duration="727000" />
       <workItem from="1597227249926" duration="2036000" />
-      <workItem from="1598339742165" duration="3626000" />
+      <workItem from="1598339742165" duration="3995000" />
     </task>
     <servers />
   </component>

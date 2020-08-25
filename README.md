@@ -43,4 +43,4 @@
  `removed` tinyint(1) NOT NULL DEFAULT '0',
  PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
-
+4. Создать в корне проекта директорию tmp и дать права на запись.

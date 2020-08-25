@@ -4,6 +4,6 @@ define("USERNAMEDB", "root");
 define("PASSWORDDB", "root");
 define("DBNAME", "hybrid_dev");
 
-define("LOGIN", "hybrid_dev");
-define("PASSWORDCABINET", "gefNle2Rqv496pkYnaJV");
+define("LOGIN", "1");
+define("PASSWORDCABINET", "1");
 

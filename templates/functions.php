@@ -67,10 +67,14 @@ function getCurrectPath() {
 }
 
 function writeLogs($string) {
-    $dir = $_SERVER["DOCUMENT_ROOT"] . '/cabinet/logs';
-    if (!file_exists($dir)) {
-        mkdir($dir, 0777, true);
+    try {
+        $dir = $_SERVER["DOCUMENT_ROOT"] . '/cabinet/logs';
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $log = date('Y-m-d H:i:s') . " " . $string;
+        file_put_contents($dir . '/' . date("m.d.y") . '.txt', $log . PHP_EOL, FILE_APPEND);
+    } catch (Exception $e) {
+
     }
-    $log = date('Y-m-d H:i:s') . " " . $string;
-    file_put_contents($dir . '/' . date("m.d.y") . '.txt', $log . PHP_EOL, FILE_APPEND);
 }

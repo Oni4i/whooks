@@ -100,6 +100,7 @@
       generateTableRows()
 
       function generateTableRows() {
+
           getAjaxRequest("get_wallets", function(response) {
 
               try {

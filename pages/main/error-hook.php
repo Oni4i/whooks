@@ -120,7 +120,7 @@
                         createTableRow(arr['inc'], arr['hook_date'],
                             arr['hook_sum'], arr['hook_personId'],
                             arr['hook_sum'], arr['dkcp_result'],
-                            arr['hook_errorCode'])
+                            arr['dkcp_result_text'])
                     })
                 }
             } catch (e) {

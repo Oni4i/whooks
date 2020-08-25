@@ -182,6 +182,16 @@
         btnRepeat.type = "button";
         btnArchive.type = "button";
 
+        btnRepeat.addEventListener('click', function() {
+
+            
+        });
+
+        btnArchive.addEventListener('click', function () {
+
+
+        });
+
         tr.appendChild(tableDataCode);
         tr.appendChild(tableDataDate);
         tr.appendChild(tableDataIncome);

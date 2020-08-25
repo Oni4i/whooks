@@ -32,13 +32,20 @@ if (isset($_POST) && isset($_POST["auth"])) {
 <div class="container">
     <div class="card formCard">
         <form class="form-signin" action="./index.php" method="post">
+            <?php
+            if (isset($isAuthRight) && !$isAuthRight) { ?>
+                <div class="form-group">
+                    <h4 align="center" style="color: red">Неверный логин/пароль</h4>
+                </div>
+            <?}
+            ?>
             <div class="blockTextAuth">
                 <h1 class="text-center">Авторизация</h1>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputlogin">Логин</label>
-                <input type="login" id="inputLogin" class="form-control" placeholder="Login" name="login" required autofocus>
+                <input type="login" id="inputLogin" class="form-control" placeholder="Login" name="login" value="<?= isset($isAuthRight) ? $_POST['login'] : ''?>" required autofocus>
             </div>
 
             <div class="form-group">

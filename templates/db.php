@@ -22,6 +22,16 @@ function queryToDataBase($query) {
     return null;
 }
 
+function insertToDataBase($query) {
+    $mysqli = connectToDb();
+    if ($result = $mysqli->query($query) === TRUE) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
 function optionsFromDataBase() {
     $query = "select * from settings";
     queryToDataBase($query);

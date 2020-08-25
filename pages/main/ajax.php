@@ -27,7 +27,7 @@ if (isset($_GET['get_wallets'])) {
     $wallet = $_GET['wallet'];
     $id = $_GET['id'];
 
-    $responseAjax = 200;
+    $responseAjax = '200';
 
     writeLogs("Отправляю запрос на получение hook_id...");
 
@@ -66,7 +66,7 @@ if (isset($_GET['get_wallets'])) {
 
         writeLogs("Отправляю запрос на удаление записи хука из базы данных...");
         $query = "delete from wallets where code=$id";
-        $result = queryToDataBase($query);
+        $result = insertToDataBase($query);
 
         if ($result) {
 
@@ -75,18 +75,17 @@ if (isset($_GET['get_wallets'])) {
         } else {
 
             writeLogs("Удаление кода $id не произведено. Необходимо удалить самостоятельно");
-            $responseAjax = 2;
+            $responseAjax = '2';
         }
-
 
     } else {
 
         writeLogs("Неудачное удаление хука");
-        $responseAjax = 1;
+        $responseAjax = '1';
     }
 
     writeLogs("Возвращаю $responseAjax");
 
 
-    echo json_encode(array("response" => $responseAjax));
+    echo json_encode(array("response"=>$responseAjax));
 }

@@ -108,18 +108,20 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/ajax.php";
                     try {
 
                         let parsedResponse = JSON.parse(response);
+                        console.log(response)
 
-                        if (parsedResponse != null && parsedResponse != undefined) {
+                        if (parsedResponse != null) {
 
                             let responseCode = parsedResponse['response'];
 
-                            if (responseCode == 200) {
+                            if (responseCode == '200') {
 
                                 tr.remove();
-                            } else if (responseCode == 1) {
+                                alert("Удаление хука прошло успешно")
+                            } else if (responseCode == '1') {
 
                                 alert("Удаление хука не удалось")
-                            } else if (responseCode == 2) {
+                            } else if (responseCode == '2') {
 
                                 alert("Удаление хука прошло успешно, но требуется удалить запись из базы данных вручную");
                             }  else {
@@ -127,6 +129,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/ajax.php";
                                 alert("Неизвестный ответ")
                             }
                         }
+
+
 
                     } catch (e) {
 

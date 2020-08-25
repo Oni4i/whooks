@@ -151,7 +151,7 @@ values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
 
     $result = queryToDataBase($query);
 
-    writeLogs($result ? "Успешная запись" : "Неудачная запись");
+    // writeLogs($result ? "Успешная запись" : "Неудачная запись");
 
     $result = json_encode($result);
 

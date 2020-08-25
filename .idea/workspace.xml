@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/add/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/add/ajax.php" afterDir="false" />
-    </list>
+    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +24,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,7 +43,7 @@
       <workItem from="1597227249926" duration="2036000" />
       <workItem from="1598339742165" duration="3995000" />
       <workItem from="1598346805019" duration="189000" />
-      <workItem from="1598347008811" duration="961000" />
+      <workItem from="1598347008811" duration="1331000" />
     </task>
     <servers />
   </component>
@@ -65,6 +67,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1597137720715" />
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598348003180">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598348003180" />
     <state x="829" y="464" key="NewPhpFileDialog" timestamp="1597137730177">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -77,5 +83,9 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598342634935" />
+    <state x="713" y="451" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598347992174">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="713" y="451" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598347992174" />
   </component>
 </project>

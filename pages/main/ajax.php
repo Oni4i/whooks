@@ -91,7 +91,7 @@ if (isset($_GET['get_wallets'])) {
 } else if (isset($_GET['get_income_webhooks'])) {
 
     $query = "select inc, hook_date, hook_sum, hook_personId, account_balance, dkcp_result, hook_txnId, dkcp_result_text from income_webhooks
-            where where next_operation  != 'dkcp_ok'";
+            where next_operation  != 'dkcp_ok'";
 
     writeLogs("Отправляю запрос на получение income_webhooks..." . $query);
 

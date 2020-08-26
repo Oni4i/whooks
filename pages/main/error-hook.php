@@ -97,7 +97,7 @@
                 <th scope="col">Сумма поступления</th>
                 <th scope="col">Кошелек</th>
                 <th scope="col">Баланс кошелька</th>
-                <th scope="col">Код dkcp</th>
+                <th scope="col">Статус</th>
                 <th scope="col">Ошибка dkcp</th>
                 <th scope="col"><button id="reload_btn" type="button" class="btn btn-secondary">Перезагрузка</button></th>
               </tr>
@@ -134,7 +134,7 @@
 
                         createTableRow(arr['inc'], arr['hook_date'],
                             arr['hook_sum'], arr['hook_personId'],
-                            arr['account_balance'], arr['dkcp_result'],
+                            arr['account_balance'], arr['next_operation'],
                             arr['hook_txnId'], arr['dkcp_result_text'])
                     })
                 }

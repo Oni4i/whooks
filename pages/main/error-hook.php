@@ -188,7 +188,6 @@
 
             getAjaxRequest("repeat_operation&id=" + code, function (response) {
 
-                console.log(response)
                 try {
 
                     let parsedResponse = JSON.parse(response);
@@ -224,6 +223,37 @@
 
         btnArchive.addEventListener('click', function () {
 
+            getAjaxRequest("archive&id=" + code, function (response) {
+
+                try {
+
+                    let parsedResponse = JSON.parse(response);
+
+                    if (parsedResponse != null) {
+
+                        let responseCode = parsedResponse['response'];
+                        console.log(responseCode)
+                        if (responseCode == '200') {
+
+                            tr.remove();
+                            alert("Перенос в архив успешно завершён")
+                        } else if (responseCode == '1') {
+
+                            alert("Не удалось вставить запись в архив")
+                        } else if (responseCode == '2') {
+
+                            alert("Вставка в архив прошла успешно, но удаление из income_webhooks не произведено");
+                        }  else {
+
+                            alert("Неизвестный ответ")
+                        }
+                    }
+
+                } catch (e) {
+
+                    alert("Неизвестная ошибка от сервера")
+                }
+            })
 
         });
 

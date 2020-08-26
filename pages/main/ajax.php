@@ -91,7 +91,7 @@ if (isset($_GET['get_wallets'])) {
 } else if (isset($_GET['get_income_webhooks'])) {
 
     $query = "select inc, hook_date, hook_sum, hook_personId, hook_sum, dkcp_result, dkcp_result_text from income_webhooks
-            where next_operation LIKE '%_error' limit 100";
+            where next_operation LIKE '%_error'";
 
     writeLogs("Отправляю запрос на получение income_webhooks..." . $query);
 
@@ -155,4 +155,46 @@ if (isset($_GET['get_wallets'])) {
     }
 
     echo json_encode(array("response"=>$responseAjax));
+
+} else if (isset($_GET['archive']) && isset($_GET['id'])) {
+
+    $responseAjax = '200';
+    $inc = $_GET['id'];
+    writeLogs("Получен запрос archive...");
+
+    $query = "insert income_webhooks_archive 
+    (
+    select * 
+    from income_webhooks 
+    where inc = $inc
+    )";
+
+    writeLogs("Отправляю запрос на вставку $query...");
+
+    $result = insertToDataBase($query);
+
+    if ($result) {
+
+        writeLogs("Вставка в архив прошла успешно");
+
+        $query = "delete from income_webhooks where inc=$inc";
+        $resultDelete = insertToDataBase($query);
+
+        if ($resultDelete) {
+
+            writeLogs("Удаление прошло успешно\n\n");
+
+        } else {
+
+            writeLogs("Удаление записи не удалось\n\n");
+            $responseAjax = '2';
+        }
+
+    } else {
+
+        writeLogs("Вставка в архив не удалась \n\n");
+        $responseAjax = '1';
+    }
+
+    echo json_encode(array("response" => $responseAjax));
 }

@@ -87,7 +87,7 @@
           <h2>Ошибочно обработанные вэб хуки</h2>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-sm">
             <thead>
               <tr id="trHead">
 

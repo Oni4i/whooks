@@ -104,4 +104,55 @@ if (isset($_GET['get_wallets'])) {
     writeLogs("Возвращаю " . $result . "\n____________________");
 
     echo $result;
+} else if (isset($_GET['repeat_operation']) && isset($_GET['id'])) {
+
+    writeLogs("Получен запрос repeat_operation...");
+
+    $code = $_GET['id'];
+
+    writeLogs("Отправляю запрос на получения hook_txnId по коду $code...");
+
+    $query = "select hook_txnId from income_webhooks where inc=$code limit 1";
+    $result = queryToDataBase($query);
+
+    $responseAjax = '200';
+
+    writeLogs("Получен ответ от базы данных...");
+
+    if ($txnId = $result[0]['hook_txnId']) {
+
+        writeLogs("Отправляю запрос на изменения next_operation кода $code...");
+
+        $query = "update income_webhooks set next_operation='repeat' where inc=$code";
+        $result = insertToDataBase($query);
+
+        if ($result) {
+
+            writeLogs("Изменение на repeat прошло успешно");
+
+        } else {
+
+            writeLogs("Изменение на repeat прошло неудачно");
+
+            $responseAjax = '2';
+        }
+
+        writeLogs("Отправляю запрос на скрипт с txnId $txnId...");
+
+        $url = urlencode("https://gate-dev.paypoint.pro/systems/qiwi_web_hook/repeater.php?hook_txnId=$txnId");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $request = curl_exec($ch);
+        curl_close($ch);
+
+        writeLogs("Запрос отправлен...\n\n");
+
+    } else {
+
+        writeLogs("В ответе не найден hook_txnId...");
+
+        $responseAjax = '1';
+    }
+
+    echo json_encode(array("response"=>$responseAjax));
 }

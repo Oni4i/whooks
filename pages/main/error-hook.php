@@ -184,6 +184,39 @@
 
         btnRepeat.addEventListener('click', function() {
 
+            getAjaxRequest("repeat_operation&id=" + code, function (response) {
+
+                console.log(response)
+                try {
+
+                    let parsedResponse = JSON.parse(response);
+
+
+                    if (parsedResponse != null) {
+
+                        let responseCode = parsedResponse['response'];
+                        console.log(responseCode)
+                        if (responseCode == '200') {
+
+                            tr.remove();
+                            alert("Запрос отпрален успешно, данные сохранены")
+                        } else if (responseCode == '1') {
+
+                            alert("Не найден hook_txnId по данному коду")
+                        } else if (responseCode == '2') {
+
+                            alert("Отправка запроса на скрипт прошла успешно, но требуется изменить запись в базе данных вручную");
+                        }  else {
+
+                            alert("Неизвестный ответ")
+                        }
+                    }
+
+                } catch (e) {
+
+                    alert("Неизвестная ошибка от сервера")
+                }
+            })
 
         });
 

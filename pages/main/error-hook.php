@@ -12,60 +12,6 @@
 
   <style>
 
-      @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
-      #reload_btn {
-          position: relative;
-          display: inline-block;
-          cursor: pointer;
-          outline: none;
-          border: 0;
-          vertical-align: middle;
-          text-decoration: none;
-          font-size: inherit;
-          font-family: inherit;
-      }
-      button#reload_btn {
-          font-weight: 600;
-          color: #382b22;
-          text-transform: uppercase;
-          padding: 1.25em 2em;
-          background: #fff0f0;
-          border: 2px solid #b18597;
-          border-radius: 0.75em;
-          transform-style: preserve-3d;
-          transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
-      }
-      button#reload_btn::before {
-          position: absolute;
-          content: '';
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: #f9c4d2;
-          border-radius: inherit;
-          box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
-          transform: translate3d(0, 0.75em, -1em);
-          transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-      }
-      button#reload_btn:hover {
-          background: #ffe9e9;
-          transform: translate(0, 0.25em);
-      }
-      button#reload_btn:hover::before {
-          box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
-          transform: translate3d(0, 0.5em, -1em);
-      }
-      button#reload_btn:active {
-          background: #ffe9e9;
-          transform: translate(0em, 0.75em);
-      }
-      button#reload_btn:active::before {
-          box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
-          transform: translate3d(0, 0, -1em);
-      }
 
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -101,7 +47,13 @@
   </nav>
 
   <div class="container-fluid">
+
     <div class="row">
+        <div class="spinners">
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+        </div>
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
@@ -138,15 +90,16 @@
           <table class="table table-hover table-bordered">
             <thead>
               <tr id="trHead">
+
                 <th scope="col">Код</th>
+                <th scope="col">Номер транзакции</th>
                 <th scope="col">Дата</th>
                 <th scope="col">Сумма поступления</th>
                 <th scope="col">Кошелек</th>
                 <th scope="col">Баланс кошелька</th>
                 <th scope="col">Код dkcp</th>
-                <th scope="col">hook_txnId</th>
                 <th scope="col">Ошибка dkcp</th>
-                <th scope="col"><button id="reload_btn">Перезагрузка</button></th>
+                <th scope="col"><button id="reload_btn" type="button" class="btn btn-secondary">Перезагрузка</button></th>
               </tr>
             </thead>
             <tbody id="table_body">
@@ -181,7 +134,7 @@
 
                         createTableRow(arr['inc'], arr['hook_date'],
                             arr['hook_sum'], arr['hook_personId'],
-                            arr['hook_sum'], arr['dkcp_result'],
+                            arr['account_balance'], arr['dkcp_result'],
                             arr['hook_txnId'], arr['dkcp_result_text'])
                     })
                 }
@@ -247,10 +200,20 @@
         btnArchive.type = "button";
 
         tableDataButtons.style.width = '225px';
+        tableDataButtons.style.textAlign ="center";
 
         btnRepeat.addEventListener('click', function() {
 
+            let spinner = createSpinner();
+            btnRepeat.hidden = true;
+            btnArchive.hidden = true;
+            tableDataButtons.appendChild(spinner);
+
             getAjaxRequest("repeat_operation&id=" + code, function (response) {
+
+                btnRepeat.hidden = false;
+                btnArchive.hidden = false
+                spinner.remove();
 
                 try {
 
@@ -321,17 +284,38 @@
 
         });
 
+
         tr.appendChild(tableDataCode);
+        tr.appendChild(tableDataHookTxnId);
         tr.appendChild(tableDataDate);
         tr.appendChild(tableDataIncome);
         tr.appendChild(tableDataWallet);
         tr.appendChild(tableDataBalance);
         tr.appendChild(tableDataCodeDkcp);
-        tr.appendChild(tableDataHookTxnId);
         tr.appendChild(tableDataErorDkcp);
         tr.appendChild(tableDataButtons);
 
         document.getElementById('table_body').appendChild(tr);
 
     }
+
+
+    function createSpinner() {
+        let spinner = document.createElement('div');
+        let spinnerSpan = document.createElement('span');
+
+        spinner.role = "status";
+
+        spinner.classList = "spinner-border text-dark";
+        spinnerSpan.classList = "sr-only";
+
+        spinnerSpan.innerText = "Loading...";
+        spinner.appendChild(spinnerSpan);
+
+        spinner.style.textAlign ="center";
+
+        return spinner;
+    }
+
+
 </script>

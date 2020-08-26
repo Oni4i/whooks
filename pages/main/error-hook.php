@@ -182,6 +182,8 @@
         btnRepeat.type = "button";
         btnArchive.type = "button";
 
+        tableDataButtons.style.width = '225px';
+
         btnRepeat.addEventListener('click', function() {
 
             getAjaxRequest("repeat_operation&id=" + code, function (response) {

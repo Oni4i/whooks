@@ -139,13 +139,13 @@ if (isset($_GET['get_wallets'])) {
 
         writeLogs("Отправляю запрос на скрипт с txnId $txnId...");
 
-        $url = urlencode("https://gate-dev.paypoint.pro/systems/qiwi_web_hook/repeater.php?hook_txnId=$txnId");
+        $url = "https://gate-dev.paypoint.pro/systems/qiwi_web_hook/repeater.php?hook_txnId=" . urlencode($txnId);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $request = curl_exec($ch);
         curl_close($ch);
 
-        writeLogs("Запрос отправлен...\n\n");
+        writeLogs("Запрос отправлен на $url отправлен...\n\n");
 
     } else {
 

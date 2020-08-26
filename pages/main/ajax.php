@@ -90,7 +90,7 @@ if (isset($_GET['get_wallets'])) {
 
 } else if (isset($_GET['get_income_webhooks'])) {
 
-    $query = "select inc, hook_date, hook_sum, hook_personId, hook_sum, dkcp_result, dkcp_result_text from income_webhooks
+    $query = "select inc, hook_date, hook_sum, hook_personId, hook_sum, dkcp_result, hook_txnId, dkcp_result_text from income_webhooks
             where next_operation LIKE '%_error'";
 
     writeLogs("Отправляю запрос на получение income_webhooks..." . $query);

@@ -301,6 +301,11 @@ document.getElementById('submit').addEventListener('click', function (event) {
                 secretKey = encodeURIComponent(secretKey.toString());
                 saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${encodeURIComponent(phoneNumber)}&wallet_token=${encodeURIComponent(token)}&date=${date}&account=${encodeURIComponent(lastSelectedCode)}&card_token=${encodeURIComponent(lastSelectedCardToken)}&hook_id=${encodeURIComponent(parsedResponse['hookId'])}&secret_key=${secretKey}`, function(response) {
 
+                    document.getElementById('inputPhone').value = ""
+                    document.getElementById('inputToken').value = ""
+                    document.getElementById('inputDate').value = ""
+
+
                     alert("Веб хук создан")
                 });
             })

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/main/add/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/add/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.sample.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnOnHook.php" beforeDir="false" afterPath="$PROJECT_DIR$/turnOnHook.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +56,7 @@
       <workItem from="1598346805019" duration="189000" />
       <workItem from="1598347008811" duration="3104000" />
       <workItem from="1598350467501" duration="34028000" />
-      <workItem from="1598513528426" duration="8100000" />
+      <workItem from="1598513528426" duration="10803000" />
     </task>
     <servers />
   </component>

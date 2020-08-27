@@ -8,6 +8,9 @@
 * DBNAME - название базы данных
 * LOGIN - логин для входа в кабинет
 * PASSWORDCABINET - пароль для входа в кабинет
+* URLFORREPEAT - url для повторений;
+* PATHFORLOG - путь к логу;
+* LOGNAME - название логов;
 3. Создать таблицы processing_accounts, settings и wallets в базе данных скриптами:
 * CREATE TABLE `processing_accounts` (
  `code` int(11) NOT NULL AUTO_INCREMENT,

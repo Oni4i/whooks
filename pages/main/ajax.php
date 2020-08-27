@@ -139,7 +139,7 @@ if (isset($_GET['get_wallets'])) {
 
         writeLogs("Отправляю запрос на скрипт с txnId $txnId...");
 
-        $url = "https://gate-dev.paypoint.pro/systems/qiwi_web_hook/repeater.php?hook_txnId=" . urlencode($txnId);
+        $url = URLFORREPEAT . "hook_txnId=" . urlencode($txnId);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $request = curl_exec($ch);
@@ -197,4 +197,27 @@ if (isset($_GET['get_wallets'])) {
     }
 
     echo json_encode(array("response" => $responseAjax));
+
+} else if (isset($_GET['get_suc_webhooks']) && isset($_GET['page'])) {
+
+    $page = $_GET['page'];
+    $skip = ($page - 1) * 50;
+    $numberOfRows = 50;
+
+    $skip = $page == '1' ? $page : $page + 1;
+
+    $query = "select inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text from income_webhooks_archive
+            where next_operation='dkcp_ok' limit $skip, $numberOfRows";
+
+    writeLogs("Отправляю запрос на получение успешных webhook из архива..." . $query);
+
+    $result = queryToDataBase($query);
+
+    writeLogs("Получен ответ...");
+
+    $result = json_encode($result);
+
+    writeLogs("Возвращаю " . $result . "\n____________________");
+
+    echo $result;
 }

@@ -7,3 +7,7 @@ define("DBNAME", "");
 define("LOGIN", "");
 define("PASSWORDCABINET", "");
 
+define("URLFORREPEAT", "");
+
+define("PATHFORLOG", "");
+define("LOGNAME", "");

@@ -2,6 +2,7 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
+$settings = optionsFromDataBase()[0];
 
 if (isset($_GET['get_wallets'])) {
     $query = "select wallets.code, wallet_phone,
@@ -207,7 +208,7 @@ if (isset($_GET['get_wallets'])) {
     $skip = $page == '1' ? $page : $page + 1;
 
     $query = "select inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text from income_webhooks_archive
-            where next_operation='dkcp_ok' limit $skip, $numberOfRows";
+            where next_operation='dkcp_ok' limit $numberOfRows";
 
     writeLogs("Отправляю запрос на получение успешных webhook из архива..." . $query);
 
@@ -218,6 +219,149 @@ if (isset($_GET['get_wallets'])) {
     $result = json_encode($result);
 
     writeLogs("Возвращаю " . $result . "\n____________________");
+
+    echo $result;
+} else if (isset($_GET['get_accounts'])) {
+
+    $query = "select * from processing_accounts";
+
+    writeLogs("Отправляю запрос на получение аккаунтов...");
+
+    $result = queryToDataBase($query);
+
+    writeLogs("Получен ответ...");
+
+    $result = json_encode($result);
+
+    writeLogs("Возвращаю " . $result . "\n____________________");
+
+    echo $result;
+
+} else if (isset($_GET['get_cards']) && isset($_GET['login']) && isset($_GET['password'])) {
+
+    $url = $settings['processing_url'];
+    $program = $settings["processing_program"];
+    $payform = $settings["form_instant"];
+    $file = "direct.py";
+    $transact = getExtTransact();
+    $program_sign = md5( $settings['processing_skeys'] . $transact); //
+
+    $login = utf8_encode($_GET['login']);
+    if ($login[0] == "+" || $login[0] == " ") {
+        $login = substr($login, 1);
+    }
+
+    $password = encryptPassword($_GET['password'], $transact);
+    $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
+
+    $params .= "&login=$login";
+    $request = "$url/$file?$params";
+
+    writeLogs("Отправляю запрос на получение карт " . $request);
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $request);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    $out = curl_exec($curl);
+    curl_close($curl);
+
+    writeLogs("Получен ответ от процессинга " . $out);
+    try {
+        $xml = new SimpleXMLElement($out);
+        foreach ($xml->table->colvalues as $element) {
+            $cards = $element->type_text_val;
+            if (!empty($cards)) {
+
+                $cards = explode("|", $cards);
+            }
+
+            $tokens = $element->type_num_val;
+
+            if (!empty($tokens)) {
+
+                $tokens = explode("|", $tokens);
+            }
+        }
+
+        $result = json_encode(array("cards" => $cards, "tokens" => $tokens));
+        writeLogs("Возвращаю  " . $result . "\n____________________");
+    } catch (Exception $e) {
+
+        writeLogs("Ошибка  " . $e->getMessage() . "\n____________________");
+    }
+
+    echo empty($cards) ? json_encode("Empty") : $result;
+
+} else if (isset($_GET['create_web_hook']) && isset($_GET['token'])) {
+
+    $url = "https://edge.qiwi.com/payment-notifier/v1/hooks?hookType=1&txnType=2&param=" . urlencode($settings['notice_url']);
+    $ch = curl_init($url);
+
+    writeLogs("Отправляю запрос на создание хука $url");
+
+    curl_setopt($ch, CURLOPT_PUT, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //4b8e4a4c1d95da3236c3ea5ffb113e36 token
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $_GET['token'],
+        'ContentType: application/json; charset=UTF-8'));
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+
+    writeLogs("Получен ответ от QIWI $result");
+    $result = json_decode($result);
+    $result = json_encode($result);
+    writeLogs("Возвращаю $result \n____________________");
+    echo $result;
+
+} else if (isset($_GET['get_secret_key']) && isset($_GET['token']) && isset($_GET['hook_id'])){
+
+    $hook_id = urldecode($_GET['hook_id']);
+    $url = "https://edge.qiwi.com/payment-notifier/v1/hooks/$hook_id/key";
+    writeLogs("Отправляю запрос на получение секретного ключа $url");
+    $ch = curl_init($url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $_GET['token'],
+        'ContentType: application/json; charset=UTF-8'));
+    $result = curl_exec($ch);
+    curl_close($ch);
+    writeLogs("Получен ответ от QIWI $result");
+    $result = json_decode($result);
+    $result = json_encode($result);
+    writeLogs("Возвращаю $result \n____________________");
+    echo $result;
+
+} else if (isset($_GET['save_web_hook']) && isset($_GET['code']) && isset($_GET['phone'])
+    && isset($_GET['wallet_token']) && isset($_GET['date']) && isset($_GET['account'])
+    && isset($_GET['card_token']) && isset($_GET['hook_id']) && isset($_GET['secret_key'])) {
+
+    writeLogs("Отправляю запрос на сохранение данных в бд");
+
+    $code = $_GET['code'];
+    $phone = urldecode($_GET['phone']);
+    $wallet_token = urldecode($_GET['wallet_token']);
+    $date = $_GET['date'];
+    $account = urldecode($_GET['account']);
+    $card_token = urldecode($_GET['card_token']);
+    $hook_id = urldecode($_GET['hook_id']);
+    $secret_key = $_GET['secret_key'];
+
+    writeLogs("Получен secretKey " . $_GET['secret_key']);
+
+    $query = "insert high_priority ignore into wallets set wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
+                processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key'
+                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key'";
+
+    writeLogs("Запрос $query");
+
+    $result = insertToDataBase($query);
+
+    writeLogs($result ? "Успешная запись" : "Неудачная запись");
+
+    $result = json_encode($result);
 
     echo $result;
 }

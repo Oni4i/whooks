@@ -5,6 +5,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 $settings = optionsFromDataBase()[0];
 
 if (isset($_GET['get_accounts'])) {
+
     $query = "select * from processing_accounts";
 
     writeLogs("Отправляю запрос на получение аккаунтов...");
@@ -74,10 +75,6 @@ if (isset($_GET['get_accounts'])) {
         writeLogs("Ошибка  " . $e->getMessage() . "\n____________________");
     }
 
-
-
-
-
     echo empty($cards) ? json_encode("Empty") : $result;
 
 } else if (isset($_GET['create_web_hook']) && isset($_GET['token'])) {
@@ -135,14 +132,7 @@ if (isset($_GET['get_accounts'])) {
     $hook_id = urldecode($_GET['hook_id']);
     $secret_key = $_GET['secret_key'];
 
-
     writeLogs("Получен secretKey " . $_GET['secret_key']);
-
-
-    /*"insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id)
-values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
-    //$query = "insert into wallets (code, wallet_phone, wallet_token, wallet_token_valid_date, processing_account, card_token, hook_id, secret_key)
-    //            values ($code, '$phone', '$wallet_token', '$date', $account, '$card_token', '$hook_id', '$secret_key')";
 
     $query = "insert high_priority ignore into wallets set wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
                 processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key'
@@ -150,50 +140,11 @@ values (code, '22', '231321', '10-10-2000', '1', '231321', '213')";*/
 
     writeLogs("Запрос $query");
 
-    $result = queryToDataBase($query);
+    $result = insertToDataBase($query);
 
-    // writeLogs($result ? "Успешная запись" : "Неудачная запись");
+    writeLogs($result ? "Успешная запись" : "Неудачная запись");
 
     $result = json_encode($result);
 
     echo $result;
 }
-/*
-else if (isset($_GET['get_cards']) && isset($_GET['uid'])) {
-    $uid = $_GET['uid'];
-    $query = "select * from wallets
-            left join processing_accounts pa on pa.code = wallets.processing_account 
-            where pa.uid = $uid";
-
-    $result = queryToDataBase($query);
-    $result = json_encode($result);
-
-    echo $result;
-}
-*/
-
-
-/*
- *         $url = "https://dkcp-dev.paypoint.pro";
-        $script = "dkcp_kpk";
-        $file = "direct.py";
-        $transact = getExtTransact();
-        $program_sign = md5("I3AtT0CFEoZjZMFNkkOh" . $transact);
-
-            $login = "kruzyabra@yandex.ru";
-        $password = encryptPassword("123456", $transact);
-
-        echo $transact . "<br></br>";
-
-
-        $params = "ext_transact=$transact&program_sign=$program_sign&program=10075&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=15905";
-        $request = "$url/$script/$file?$params";
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $request);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $out = curl_exec($curl);
-        curl_close($curl);
-        echo $request;
-        echo $out;
- */

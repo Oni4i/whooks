@@ -75,7 +75,7 @@
           <h2>Кошельки</h2>
         </div>
         <div class="table-responsive">
-          <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-sm">
             <thead>
               <tr id="trHead">
                 <th scope="col">#</th>

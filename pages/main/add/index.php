@@ -7,6 +7,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/add/ajax.php";
     <link href="./../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="index.css" rel="stylesheet">
+    <script src="../../../assets/dist/js/jquery-1.11.2.min.js"></script>
+    <script src="../../../assets/dist/js/jquery.mask.js"></script>
+
     </head>
     <body>
     <div class="container">
@@ -15,7 +18,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/add/ajax.php";
 
                 <div class="form-group">
                     <label for="exampleInputPhone">Номер телефона</label>
-                    <input type="phone" id="inputPhone" class="form-control" placeholder="+7 (999) 999 23 23" data-isValid="0" value="79999276993" required autofocus>
+                    <input type="phone" id="inputPhone" class="form-control" placeholder="+7 (999) 999 23 23" data-isValid="0" required autofocus>
                 </div>
 
                 <div class="form-group">
@@ -88,8 +91,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/pages/main/add/ajax.php";
         ?>
 
 
-
-<script>
+    <script>
 let account_list = document.getElementById("exampleFormControlSelect1");
 let card_list = document.getElementById("exampleFormControlSelect2");
 
@@ -254,6 +256,8 @@ function insertCards(element, arrOfCards, arrOfTokens) {
 }
 
 
+
+
 document.getElementById('submit').addEventListener('click', function (event) {
 
     let phone = document.getElementById('inputPhone').value
@@ -292,7 +296,8 @@ document.getElementById('submit').addEventListener('click', function (event) {
 
             })
                 .then(() => {
-                let phoneNumber = phone[0] == "+" ? phone.substring(1) : phone;
+
+                let phoneNumber = phone.split('').filter(x => Number(x)).join('');
                 secretKey = encodeURIComponent(secretKey.toString());
                 saveWebHook(`save_web_hook&code=${lastSelectedCode}&phone=${encodeURIComponent(phoneNumber)}&wallet_token=${encodeURIComponent(token)}&date=${date}&account=${encodeURIComponent(lastSelectedCode)}&card_token=${encodeURIComponent(lastSelectedCardToken)}&hook_id=${encodeURIComponent(parsedResponse['hookId'])}&secret_key=${secretKey}`, function(response) {
 
@@ -336,33 +341,9 @@ function isValidForm(phone, token, date, card) {
     return true
 }
 
-
-//PHONE PROPERTY
-document.getElementById('inputPhone').addEventListener('focus', _ => {
-    // Если там ничего нет или есть, но левое
-    if(!/^\+\d*$/.test(document.getElementById('inputPhone').value))
-        // То вставляем знак плюса как значение
-        document.getElementById('inputPhone').value = '+';
+$(document).ready(function(){
+    $("#inputPhone").mask("+7 (999) 999-99-99");
 });
-document.getElementById('inputPhone').addEventListener('keypress', e => {
-    // Отменяем ввод не цифр
-    if(!/\d/.test(e.key))
-        e.preventDefault();
-});
-
-document.getElementById('inputPhone').addEventListener('blur', e => {
-    let val = document.getElementById('inputPhone').value.toString()
-    let len = val.length
-
-    if (val[0] == '+' && len == 12 || val[0] != '+' && len == 11) {
-        document.getElementById('inputPhone').style.border = "1px solid #ced4da";
-        document.getElementById('inputPhone').dataset.isValid = "1"
-    } else {
-        document.getElementById('inputPhone').style.borderColor = "red";
-        document.getElementById('inputPhone').dataset.isValid = "0"
-    }
-})
-
 
 function encode_utf8(s) {
     return unescape(encodeURIComponent(s));

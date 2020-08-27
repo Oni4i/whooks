@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
+    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnOnHook.php" beforeDir="false" afterPath="$PROJECT_DIR$/turnOnHook.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +34,10 @@
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
@@ -46,11 +53,12 @@
       <workItem from="1598346805019" duration="189000" />
       <workItem from="1598347008811" duration="3104000" />
       <workItem from="1598350467501" duration="34028000" />
+      <workItem from="1598513528426" duration="6835000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="571" y="194" key="#CLI_Interpreters" timestamp="1597137063668">

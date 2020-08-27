@@ -17,8 +17,7 @@ curl_close($ch);
 echo $result;
 */
 
-/* Delete exists webhook
-$ch = curl_init("https://edge.qiwi.com/payment-notifier/v1/hooks/b2a50d66-0513-4c6a-a591-50e9ce75c4b6");
+$ch = curl_init("https://edge.qiwi.com/payment-notifier/v1/hooks/163c96f3-b846-4143-b788-a71830f94b43");
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
@@ -30,7 +29,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer 4b8e4a4c1d95da
 $result = curl_exec($ch);
 curl_close($ch);
 echo $result;
-*/
+
 
 /* Get secret key
 $hookId = ...

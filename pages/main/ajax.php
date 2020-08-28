@@ -214,10 +214,10 @@ if (isset($_GET['get_wallets'])) {
     $responseAjax = array();
 
     $page = $_GET['page'];
-    $skip = ($page - 1) * 50;
     $numberOfRows = 50;
+    $skip = ($page - 1) * $numberOfRows;
 
-    $skip = $page == 1 ? $skip : $skip + 1;
+
 
     $dateStart = strlen($_GET['date_start']) == 0 ? "1970-01-01" : $_GET['date_start'];
     $dateEnd = strlen($_GET['date_end']) == 0 ? "3000-01-01" : $_GET['date_end'];
@@ -250,7 +250,6 @@ if (isset($_GET['get_wallets'])) {
     }
 
     writeLogs(json_encode($query));
-    writeLogs('\n\n\n\n\n_____________________________-------------------------------' . json_encode($resultCount));
 
     $query = "select  
               inc, hook_txnId, hook_date, hook_sum, hook_personId, dkcp_sum, dkcp_transact 

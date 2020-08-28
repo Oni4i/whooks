@@ -449,7 +449,6 @@
 
     document.getElementById("reload_btn").addEventListener('click', function() {
 
-
         document.getElementById('table_body').innerHTML = "";
         document.getElementById('pages-container').innerHTML = "";
         generateTableRows(false, 1, true);

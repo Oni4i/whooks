@@ -28,7 +28,7 @@
 
 
     button[disabled] {
-        background-color: #6c757d;
+        background-color: #e9ecef;
     }
   </style>
   <!-- Custom styles for this template -->
@@ -360,11 +360,14 @@
 
         buttonPage.innerText = number + 1;
 
+        let arrayPages = document.getElementsByClassName('page-link')
+
+        arrayPages[0].disabled = true;
+        buttonPage.disabled = number + 1 == 1 ? true : false;
+
         buttonPage.addEventListener('click', function() {
 
             document.getElementById('table_body').innerHTML = "";
-
-            buttonPage.disabled = true;
 
             let lastPage = document.getElementsByClassName('page-link')[currentPage];
             lastPage.disabled = false;
@@ -405,16 +408,22 @@
 
             buttonPage.addEventListener('click', function() {
 
-                buttonPage.disabled = currentPage == 1 ? true : false;
-
                 let arrayOfAllPages = document.getElementsByClassName('page-link');
 
-                arrayOfAllPages[currentPage].click();
-
-                if (currentPage > 1) {
-
-                    currentPage -= 1;
+                console.log(currentPage)
+                if (currentPage == 1) {
+                    return false
                 }
+
+                if (arrayOfAllPages[arrayOfAllPages.length-2].disabled)
+                    arrayOfAllPages[arrayOfAllPages.length-2].disabled = false;
+
+
+                document.getElementById('table_body').innerHTML = "";
+                generateTableRows(false, currentPage)
+                arrayOfAllPages[currentPage].disabled = false;
+                currentPage--;
+                arrayOfAllPages[currentPage].disabled = true;
 
             })
 
@@ -426,13 +435,20 @@
 
                 let arrayOfAllPages = document.getElementsByClassName('page-link');
 
-                arrayOfAllPages[currentPage].click();
-
-                if (currentPage < arrayOfAllPages.length-2) {
-                    currentPage += 1;
+                if (currentPage == arrayOfAllPages.length-2) {
+                    return false
                 }
 
-                buttonPage.disabled = currentPage == arrayOfAllPages.length - 2 ? true : false;
+                if (arrayOfAllPages[0].disabled)
+                    arrayOfAllPages[0].disabled = false;
+
+
+                document.getElementById('table_body').innerHTML = "";
+                generateTableRows(false, currentPage)
+                arrayOfAllPages[currentPage].disabled = false;
+                currentPage++;
+                arrayOfAllPages[currentPage].disabled = true;
+
 
             })
         }

@@ -63,7 +63,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="successfull-hook.php">
+              <a class="nav-link" href="success-hook.php">
                 Успешно обработанные вэб хуки
               </a>
             </li>

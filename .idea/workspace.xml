@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/main/succesfull-hook.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/error-hook.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/error-hook.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/successfull-hook.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +53,7 @@
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -90,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="571" y="194" key="#CLI_Interpreters" timestamp="1597137063668">
@@ -108,10 +108,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1597137720715" />
-    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598348003180">
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598630374137">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598348003180" />
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598630374137" />
     <state x="670" y="371" key="NewPhpFileDialog" timestamp="1598531844590">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -121,10 +121,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1597137034478" />
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598440252511">
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598624898476">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598440252511" />
+    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598624898476" />
     <state x="713" y="451" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598347992174">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

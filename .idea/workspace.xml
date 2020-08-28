@@ -20,8 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/dist/js/ajaxRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/error/ajax.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/error/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/error/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/error/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/success/ajax.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/success/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/success/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main/success/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/.idea/pages.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/success-hook.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/success-hook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/error-hook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/success-hook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +51,14 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,14 +73,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/main/error" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\error" />
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\success" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main" />
+      <recent name="Z:\openServer\domains\gate\cabinet\templates" />
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -71,11 +108,12 @@
       <workItem from="1598347008811" duration="3104000" />
       <workItem from="1598350467501" duration="34028000" />
       <workItem from="1598513528426" duration="13620000" />
+      <workItem from="1598641066888" duration="5915000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -106,15 +144,19 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="766" y="342" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1597137720715" />
-    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598630374137">
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598646701470">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598630374137" />
-    <state x="670" y="371" key="NewPhpFileDialog" timestamp="1598531844590">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="721" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598646701470" />
+    <state x="749" y="263" key="NewPhpClassDialog" timestamp="1598644896891">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="749" y="263" key="NewPhpClassDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598644896891" />
+    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1598645217389">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="670" y="371" key="NewPhpFileDialog/62.0.1474.864@62.0.1474.864" timestamp="1598531844590" />
-    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1597137730177" />
+    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598645217389" />
     <state x="492" y="184" key="SettingsEditor" timestamp="1597137034478">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

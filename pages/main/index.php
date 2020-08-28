@@ -7,20 +7,7 @@
   <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
   </style>
   <!-- Custom styles for this template -->
   <link href="index.css" rel="stylesheet">
@@ -51,12 +38,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="success-hook.php">
+              <a class="nav-link" href="success/">
                 Успешно обработанные вэб хуки
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="error-hook.php">
+              <a class="nav-link" href="error/">
                 Ошибочно обработанные вэб хуки
               </a>
             </li>
@@ -95,6 +82,7 @@
       </main>
     </div>
   </div>
+  <script src="../../assets/dist/js/ajaxRequest.js"></script>
   <script>
 
       generateTableRows()
@@ -122,25 +110,6 @@
           })
       }
 
-      function getAjaxRequest(request, callback) {
-
-          return fetch("ajax.php?" + request,
-              {
-                  method: "GET",
-                  headers:{"content-type":"application/json"}
-              })
-              .then(response => {
-                  if (response.status !== 200) {
-                      return Promise.reject();
-                  }
-                  return response.text()
-              })
-              .then(response => {
-                  if (callback)
-                      callback(response);
-              })
-              .catch((e) => console.log(e))
-      }
 
       function createTableRow(id, phone, wallet, date, login, card) {
           let tr = document.createElement('tr');

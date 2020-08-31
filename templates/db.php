@@ -32,6 +32,8 @@ function queryToDataBase($query) {
 function insertToDataBase($query) {
     $mysqli = connectToDb();
 
+    writeLogs("Received $query");
+
     if ($result = $mysqli->query($query) === TRUE)
         $result = true;
     else

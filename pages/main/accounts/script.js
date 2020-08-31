@@ -56,9 +56,9 @@ let submit = document.getElementById('submit');
 submit.addEventListener('click', function () {
 
     let uid = document.getElementById('inputUId').value;
-    let name = document.getElementById('inputUId').value;
-    let login = document.getElementById('inputUId').value;
-    let password = document.getElementById('inputUId').value;
+    let name = document.getElementById('inputName').value;
+    let login = document.getElementById('inputLogin').value;
+    let password = document.getElementById('inputPassword').value;
     let keyt = document.getElementById('inputKeyt').value;
 
     uid = encodeURIComponent(uid);
@@ -67,18 +67,20 @@ submit.addEventListener('click', function () {
     password = encodeURIComponent(password);
     keyt = encodeURIComponent(keyt);
 
-    getAjaxRequest(`save_account&uid=${uid}&name=${name}&login=${login}&password=${password}&keyt=${keyt}`, function() {
+    getAjaxRequest(`save_account&uid=${uid}&name=${name}&login=${login}&password=${password}&keyt=${keyt}`, function(response) {
 
         try {
 
             let parsedResponse = JSON.parse(response);
 
-            if (parsedResponse != null && parsedResponse.length > 0) {
-
+            if (parsedResponse != null) {
+                console.log(parsedResponse)
                 if (parsedResponse['response'] == '200')
                     alert('Успешная запись');
-                else
+                else if (parsedResponse['response'] == '1')
                     alert('Неудачная запись');
+                else
+                    alert('Неизвестная ошибка');
             }
         } catch (e) {
 

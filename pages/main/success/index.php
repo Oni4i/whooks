@@ -132,7 +132,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                     </table>
                     <nav aria-label="Page navigation example">
                         <ul id="pages-container" class="pagination justify-content-end">
-
                         </ul>
                     </nav>
         </main>

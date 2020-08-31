@@ -8,10 +8,8 @@ $('#datepicker, #datepicker1').datepicker({
 });
 $('#datepicker, #datepicker1').datepicker("setDate", new Date());
 
-
 generateTableRows(true, 1, true)
 let currentPage = 1;
-
 
 function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages) {
 
@@ -35,7 +33,6 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
     getAjaxRequest(ajaxRequest, function(response) {
 
         try {
-
             let parsedResponse = JSON.parse(response);
             console.log(parsedResponse)
             let rows = parsedResponse['rows'];
@@ -48,7 +45,6 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
             })
 
             if (isFirstGenerate) {
-
                 let wallets = parsedResponse['wallets'];
 
                 wallets.forEach(wallet => {
@@ -61,7 +57,6 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
 
 
                 })
-
             }
 
             if (isRequiredReCreatePages) {
@@ -70,18 +65,15 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
 
                 generatePages(pages, count);
             }
-
-
         } catch (e) {
-
             console.log(e)
         }
     })
 }
 
 function createTableRow(code, transact, date, income, wallet, transfer, transactDKCP) {
-    let tr = document.createElement('tr');
 
+    let tr = document.createElement('tr');
     let tableDataCode = document.createElement('th');
     let tableDataTransaction = document.createElement('td');
     let tableDataDate = document.createElement('td');
@@ -143,15 +135,12 @@ function generatePages(container, count) {
     }
 
     container.appendChild(moveForward)
-
-    console.log(count)
 }
 
 function generatePage(number) {
 
     let page = document.createElement('li');
     let buttonPage = document.createElement('button');
-
 
     page.classList = "page-item";
     buttonPage.classList = "page-link";
@@ -183,8 +172,6 @@ function generatePage(number) {
         arrayPages[arrayPages.length - 1].disabled = currentPage == arrayPages.length - 1 ?
             true : false
 
-
-        console.log(currentPage)
     })
 
     page.appendChild(buttonPage);
@@ -201,9 +188,7 @@ function generateMovePage(isBack) {
     buttonPage.classList = "page-link";
 
     if (isBack) {
-
         buttonPage.innerHTML = "Назад"
-
         buttonPage.addEventListener('click', function() {
 
             let arrayOfAllPages = document.getElementsByClassName('page-link');
@@ -216,13 +201,11 @@ function generateMovePage(isBack) {
             if (arrayOfAllPages[arrayOfAllPages.length-2].disabled)
                 arrayOfAllPages[arrayOfAllPages.length-2].disabled = false;
 
-
             document.getElementById('table_body').innerHTML = "";
             generateTableRows(false, currentPage)
             arrayOfAllPages[currentPage].disabled = false;
             currentPage--;
             arrayOfAllPages[currentPage].disabled = true;
-
         })
 
     } else {
@@ -240,14 +223,11 @@ function generateMovePage(isBack) {
             if (arrayOfAllPages[0].disabled)
                 arrayOfAllPages[0].disabled = false;
 
-
             document.getElementById('table_body').innerHTML = "";
             generateTableRows(false, currentPage)
             arrayOfAllPages[currentPage].disabled = false;
             currentPage++;
             arrayOfAllPages[currentPage].disabled = true;
-
-
         })
     }
 
@@ -256,8 +236,8 @@ function generateMovePage(isBack) {
 }
 
 function convertDate(date) {
-    let arrayDate = date.split('.');
 
+    let arrayDate = date.split('.');
     return `${arrayDate[2]}-${arrayDate[1]}-${arrayDate[0]}`;
 }
 

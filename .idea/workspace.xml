@@ -20,29 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/dist/js/ajaxRequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/error/ajax.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/error/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/error/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/error/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/success/ajax.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/success/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/success/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main/success/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/.idea/pages.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/error-hook.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/success-hook.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/success/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/success/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +67,7 @@
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -109,11 +88,12 @@
       <workItem from="1598350467501" duration="34028000" />
       <workItem from="1598513528426" duration="13620000" />
       <workItem from="1598641066888" duration="5915000" />
+      <workItem from="1598859111148" duration="951000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

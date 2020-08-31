@@ -57,7 +57,8 @@ if (
     if ($wallet != "all")
         $query .= " and (hook_personId = $wallet)";
 
-    $query .= " limit $skip, $numberOfRows";
+    $query .= " order by inc DESC
+                limit $skip, $numberOfRows";
     $result = queryToDataBase($query);
     $responseAjax['rows'] = $result;
     $responseAjax = json_encode($responseAjax);
@@ -97,6 +98,7 @@ if (
               income_webhooks_archive
               where
               (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')
+              order by inc DESC
               limit 0, 50";
     $resultRows = queryToDataBase($query);
 

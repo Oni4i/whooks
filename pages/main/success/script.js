@@ -9,7 +9,23 @@ $('#datepicker, #datepicker1').datepicker({
 $('#datepicker, #datepicker1').datepicker("setDate", new Date());
 
 generateTableRows(true, 1, true)
-let currentPage = 1;
+let currentPage = {
+    page: 1,
+
+    get Page() {
+        return this.page;
+    },
+    set Page(value) {
+
+        let arrayOfPages = document.getElementsByClassName('page-item');
+        arrayOfPages[this.page].classList = 'page-item';
+
+        this.page = value;
+
+        arrayOfPages[this.page].classList = 'page-item active';
+
+    }
+};
 
 function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages) {
 
@@ -34,7 +50,6 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
 
         try {
             let parsedResponse = JSON.parse(response);
-            console.log(parsedResponse)
             let rows = parsedResponse['rows'];
 
             rows.forEach(row => {
@@ -54,8 +69,6 @@ function generateTableRows(isFirstGenerate, pageNumber, isRequiredReCreatePages)
                     option.value = wallet['hook_personId'];
 
                     formControl[2].appendChild(option)
-
-
                 })
             }
 
@@ -135,6 +148,7 @@ function generatePages(container, count) {
     }
 
     container.appendChild(moveForward)
+    document.getElementsByClassName('page-item')[1].classList.add('active');
 }
 
 function generatePage(number) {
@@ -156,10 +170,10 @@ function generatePage(number) {
 
         document.getElementById('table_body').innerHTML = "";
 
-        let lastPage = document.getElementsByClassName('page-link')[currentPage];
+        let lastPage = document.getElementsByClassName('page-link')[currentPage.Page];
         lastPage.disabled = false;
 
-        currentPage = number + 1;
+        currentPage.Page(number + 1);
 
         buttonPage.disabled = true;
 
@@ -167,9 +181,9 @@ function generatePage(number) {
 
         let arrayPages = document.getElementsByClassName('page-link')
 
-        arrayPages[0].disabled = currentPage == 1 ?
+        arrayPages[0].disabled = currentPage.Page == 1 ?
             true : false;
-        arrayPages[arrayPages.length - 1].disabled = currentPage == arrayPages.length - 1 ?
+        arrayPages[arrayPages.length - 1].disabled = currentPage.Page == arrayPages.length - 1 ?
             true : false
 
     })
@@ -194,7 +208,7 @@ function generateMovePage(isBack) {
             let arrayOfAllPages = document.getElementsByClassName('page-link');
 
             console.log(currentPage)
-            if (currentPage == 1) {
+            if (currentPage.Page == 1) {
                 return false
             }
 
@@ -202,10 +216,10 @@ function generateMovePage(isBack) {
                 arrayOfAllPages[arrayOfAllPages.length-2].disabled = false;
 
             document.getElementById('table_body').innerHTML = "";
-            generateTableRows(false, currentPage)
-            arrayOfAllPages[currentPage].disabled = false;
-            currentPage--;
-            arrayOfAllPages[currentPage].disabled = true;
+            generateTableRows(false, currentPage.Page)
+            arrayOfAllPages[currentPage.Page].disabled = false;
+            currentPage.Page(currentPage.Page - 1);
+            arrayOfAllPages[currentPage.Page].disabled = true;
         })
 
     } else {
@@ -216,7 +230,7 @@ function generateMovePage(isBack) {
 
             let arrayOfAllPages = document.getElementsByClassName('page-link');
 
-            if (currentPage == arrayOfAllPages.length-2) {
+            if (currentPage.Page == arrayOfAllPages.length-2) {
                 return false
             }
 
@@ -224,10 +238,10 @@ function generateMovePage(isBack) {
                 arrayOfAllPages[0].disabled = false;
 
             document.getElementById('table_body').innerHTML = "";
-            generateTableRows(false, currentPage)
-            arrayOfAllPages[currentPage].disabled = false;
-            currentPage++;
-            arrayOfAllPages[currentPage].disabled = true;
+            generateTableRows(false, currentPage.Page)
+            arrayOfAllPages[currentPage.Page].disabled = false;
+            currentPage.Page(currentPage.Page + 1);
+            arrayOfAllPages[currentPage.Page].disabled = true;
         })
     }
 

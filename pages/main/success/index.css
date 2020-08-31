@@ -3,12 +3,6 @@ body {
     /* background-color: #ebedf2; */
 }
 
-.feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
-}
-
 #trHead {
     text-align: center;
 }
@@ -22,6 +16,27 @@ body {
     text-align: center;
 }
 
+.container {
+    display: flex;
+    float: left;
+    padding-left: 0px;
+    margin-bottom: 15px;
+}
+
+.blockDatepicker {
+    width: 160px;
+    margin-right: 10px;
+}
+
+.blockPurse {
+    width: 250px;
+    margin-right: 10px;
+}
+
+.blockRange {
+    width: 150px;
+    margin-right: 10px;
+}
 /*
  * Sidebar
  */

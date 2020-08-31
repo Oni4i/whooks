@@ -23,7 +23,6 @@ let currentPage = {
         this.page = value;
 
         arrayOfPages[this.page].classList = 'page-item active';
-
     }
 };
 

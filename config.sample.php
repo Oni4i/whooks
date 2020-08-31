@@ -9,5 +9,4 @@ define("PASSWORDCABINET", "");
 
 define("URLFORREPEAT", "");
 
-define("PATHFORLOG", "");
-define("LOGNAME", "");
+define("DIRFORLOG", "");

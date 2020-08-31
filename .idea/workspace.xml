@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/main/add/ajax.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/add/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/add/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/modalAdd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,8 @@
       <workItem from="1598350467501" duration="34028000" />
       <workItem from="1598513528426" duration="13620000" />
       <workItem from="1598641066888" duration="5915000" />
-      <workItem from="1598859111148" duration="8607000" />
+      <workItem from="1598859111148" duration="12134000" />
+      <workItem from="1598876485121" duration="888000" />
     </task>
     <servers />
   </component>
@@ -135,18 +132,20 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="749" y="263" key="NewPhpClassDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598644896891" />
-    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1598645217389">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="670" y="371" key="NewPhpFileDialog" timestamp="1598869773114">
+      <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state x="670" y="371" key="NewPhpFileDialog/62.0.1474.864/-1920.0.1920.1040@62.0.1474.864" timestamp="1598869773114" />
     <state x="670" y="371" key="NewPhpFileDialog/62.0.1474.864@62.0.1474.864" timestamp="1598531844590" />
     <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598645217389" />
     <state x="492" y="184" key="SettingsEditor" timestamp="1597137034478">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1597137034478" />
-    <state x="658" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1598624898476">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state x="535" y="208" width="672" height="543" key="search.everywhere.popup" timestamp="1598876984969">
+      <screen x="62" y="0" width="1474" height="864" />
     </state>
+    <state x="535" y="208" width="672" height="543" key="search.everywhere.popup/62.0.1474.864/-1920.0.1920.1040@62.0.1474.864" timestamp="1598876984969" />
     <state x="658" y="260" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598624898476" />
     <state x="713" y="451" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598347992174">
       <screen x="62" y="0" width="1858" height="1080" />

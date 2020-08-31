@@ -123,7 +123,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                             <th scope="col">Кошелек</th>
                             <th scope="col">Сумма перевода</th>
                             <th scope="col">Транзакция dkcp</th>
-                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody id="table_body">

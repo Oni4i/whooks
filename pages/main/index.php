@@ -5,10 +5,67 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
   <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../assets/dist/js/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/dist/js/jquery.mask.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
   <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Добавление кошелька</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+
+                    <div class="form-group">
+                        <label for="exampleInputPhone">Номер телефона</label>
+                        <input type="phone" id="inputPhone" class="form-control" placeholder="+7 (999) 999 23 23"
+                               data-isValid="0" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputToken">Токен кошелька</label>
+                        <input type="token" id="inputToken" class="form-control" placeholder="" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputToken">Срок действия токена</label>
+                        <input type="date" id="inputDate" class="form-control" placeholder="дд.мм.гггг"
+                               data-isValid="0" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Аккаунт процессинга</label>
+                        <select class="form-control" id="exampleFormControlSelect1"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Токенизированная карта</label>
+                        <select class="form-control" id="exampleFormControlSelect2"></select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <!-- <button type="button" class="btn btn-primary">Сохранить</button> -->
+                <button class="btn btn-primary" id="submit" type="submit"
+                        onsubmit="return false;">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Gate Dev</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
@@ -66,7 +123,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                 <th scope="col">Срок действия токена</th>
                 <th scope="col">Аккаунт процессинга</th>
                 <th scope="col">Токенизированная карта</th>
-                <th scope="col"><a href="add/index.php"><button type="button" class="btn btn-success d-block mx-auto">Добавить</button></a></th>
+                <th scope="col"><button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-success d-block mx-auto">Добавить</button></th>
               </tr>
             </thead>
             <tbody id="table_body">

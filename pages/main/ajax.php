@@ -61,6 +61,22 @@ if (isset($_GET['get_wallets'])) {
 
     echo json_encode(array("response"=>$responseAjax));
 
+} else if (isset($_GET['get_accounts'])) {
+
+    $query = "select * from processing_accounts";
+
+    writeLogs("Отправляю запрос на получение аккаунтов...");
+
+    $result = queryToDataBase($query);
+
+    writeLogs("Получен ответ...");
+
+    $result = json_encode($result);
+
+    writeLogs("Возвращаю " . $result . "\n____________________");
+
+    echo $result;
+
 } else if (isset($_GET['get_cards']) && isset($_GET['login']) && isset($_GET['password'])) {
 
     $url = $settings['processing_url'];

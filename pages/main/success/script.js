@@ -172,7 +172,7 @@ function generatePage(number) {
         let lastPage = document.getElementsByClassName('page-link')[currentPage.Page];
         lastPage.disabled = false;
 
-        currentPage.Page(number + 1);
+        currentPage.Page = number + 1;
 
         buttonPage.disabled = true;
 
@@ -217,7 +217,7 @@ function generateMovePage(isBack) {
             document.getElementById('table_body').innerHTML = "";
             generateTableRows(false, currentPage.Page)
             arrayOfAllPages[currentPage.Page].disabled = false;
-            currentPage.Page(currentPage.Page - 1);
+            currentPage.Page = currentPage.Page - 1;
             arrayOfAllPages[currentPage.Page].disabled = true;
         })
 
@@ -239,7 +239,7 @@ function generateMovePage(isBack) {
             document.getElementById('table_body').innerHTML = "";
             generateTableRows(false, currentPage.Page)
             arrayOfAllPages[currentPage.Page].disabled = false;
-            currentPage.Page(currentPage.Page + 1);
+            currentPage.Page = currentPage.Page + 1;
             arrayOfAllPages[currentPage.Page].disabled = true;
         })
     }

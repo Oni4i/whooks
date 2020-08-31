@@ -86,7 +86,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                                 <span class="input-group-text" id="">Кошелек</span>
                             </div>
                             <select class="form-control" id="exampleFormControlSelect1">
-
+                                <option value="all">Все</option>
                             </select>
                         </div>
                     </div>

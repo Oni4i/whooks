@@ -47,15 +47,17 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                             <input type="text" id="inputPassword" class="form-control" required autofocus>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword">Keyt</label>
-                            <select class="form-control" id="exampleFormControlSelect2"></select>
+                            <label for="inputKeyt">Keyt</label>
+                            <select class="form-control" id="inputKeyt">
+                                <option>Пусто</option>
+                            </select>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button class="btn btn-primary" id="submit" type="submit"
+                    <button class="btn btn-primary" id="submit" type="submit" disabled="true"
                             onsubmit="return false;">Отправить</button>
                 </div>
             </div>
@@ -95,8 +97,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                                 Ошибочно обработанные вэб хуки
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.php">
                                 Аккаунты процессинга
                             </a>
                         </li>
@@ -129,7 +131,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
         </div>
     </div>
     <script src="../../../assets/dist/js/ajaxRequest.js"></script>
-    <script src="script.js?4"></script>
+    <script src="script.js?5"></script>
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
 ?>

@@ -52,7 +52,82 @@ function createTableRow(code, uid, name, login, keyt) {
 }
 
 
+
+function getKeyt(login, password) {
+
+    getAjaxRequest(`get_keyt&login=${login}&password=${password}`, function(response) {
+        generateKeyts(response, document.getElementById('inputKeyt'));
+        unlockButton();
+    })
+}
+
+function generateKeyts(data, element) {
+
+    element.innerHTML = "";
+
+    let resultArray = parseKeyt(data);
+
+    if (resultArray['error'] === 0) {
+        for (let row = 0; row < resultArray['count']; row++) {
+            let option = createOptionKeyt(resultArray['keyt'][row], resultArray['name'][row]);
+            element.appendChild(option);
+        }
+    } else {
+        let option = document.createElement('option');
+        option.innerText = 'Пусто';
+        option.value = '0';
+        element.appendChild(option);
+    }
+
+}
+
+function parseKeyt(data) {
+
+    let resultData = {};
+
+    try {
+        let parsedJson = JSON.parse(data);
+
+        let keytArray = parsedJson['keyt'].map(keyt => keyt['0']);
+        let nameArray = parsedJson['name'].map(name => name['0']);
+
+        if (keytArray[0] == "" || nameArray[0] == "")
+            throw "Отсутвуют карты"
+
+        resultData['keyt'] = keytArray;
+        resultData['name'] = nameArray;
+        resultData['count'] = keytArray.length;
+        resultData['error'] = 0;
+    }
+    catch (e) {
+        console.log(e.toString());
+        resultData['error'] = 1;
+    }
+
+    return resultData;
+}
+
+function createOptionKeyt(keyt, name) {
+
+    let option = document.createElement('option');
+    option.innerText = `${keyt} ${name}`;
+    option.value = keyt;
+
+    return option;
+}
+
+
+
+function unlockButton() {
+
+}
+
+
 let submit = document.getElementById('submit');
+let loginField = document.getElementById('inputLogin');
+let passwordField = document.getElementById('inputPassword');
+let keytsField = document.getElementById('inputKeyt');
+
 submit.addEventListener('click', function () {
 
     let uid = document.getElementById('inputUId').value;
@@ -90,37 +165,30 @@ submit.addEventListener('click', function () {
     })
 })
 
-function getKeyt(login, password) {
+loginField.addEventListener('change', function() {
 
-    getAjaxRequest(`get_keyt&login=${login}&password=${password}`, function(response) {
-        generateKeyt();
-    })
-}
-
-function parseKeyt(data) {
-
-    try {
-        let parsedJson = JSON.parse(json);
-
-        let keytArray = parsedJson['keyt'];
-        let nameArray = parsedJson['name'];
-
-        if (cardsArray[0] == "" || tokensArray[0] == "") {
-            throw "Отсутвуют карты"
-        }
-        return keytArray, nameArray
+    if (loginField.value && passwordField.value){
+        let login = decodeURIComponent(loginField.value);
+        let password = decodeURIComponent(passwordField.value);
+        getKeyt(login, password);
     }
-    catch (e) {
-        console.log(e.toString());
+
+})
+
+passwordField.addEventListener('change', function() {
+
+    if (loginField.value && passwordField.value){
+        let login = decodeURIComponent(loginField.value);
+        let password = decodeURIComponent(passwordField.value);
+        getKeyt(login, password);
     }
-}
 
-function generateKeyt(data, element) {
+})
 
-    let resultArray = parseKeyt(data);
+keytsField.addEventListener('change', function() {
 
-    let keyt = resultArray.keyt;
-    let     
+    if (keytsField.value != '0')
+        submit.disabled = false;
 
 
-}
+})

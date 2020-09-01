@@ -2,6 +2,8 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
+$settings = optionsFromDataBase()[0];
+
 if (isset($_GET['get_accounts_processing'])) {
 
     $query = "select code, uid, name, login, keyt from processing_accounts";
@@ -67,8 +69,7 @@ if (isset($_GET['get_accounts_processing'])) {
 
     $url = $settings['processing_url'];
     $program = $settings["processing_program"];
-    $payform = $settings["form_instant"];
-    $file = "direct.py";
+    $file = "keyt.py";
     $transact = getExtTransact();
     $program_sign = md5( $settings['processing_skeys'] . $transact);
 
@@ -77,12 +78,12 @@ if (isset($_GET['get_accounts_processing'])) {
         $login = substr($login, 1);
 
     $password = encryptPassword($_GET['password'], $transact);
-    $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
-    $params .= "&login=$login";
+    $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=getlist_keyt";
+    //$params .= "&login=$login";
     $request = "$url/$file?$params";
 
 
-    writeLogs("Send request $url");
+    writeLogs("Send request $request");
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $request);
@@ -95,17 +96,20 @@ if (isset($_GET['get_accounts_processing'])) {
     writeLogs("Response from processing " . $out);
     try {
         $xml = new SimpleXMLElement($out);
+        $keytArray = [];
+        $nameArray = [];
         foreach ($xml->table->colvalues as $element) {
             $keyt = $element->keyt;
             $name = $element->name;
 
             if (!empty($keyt))
-                $keyt = explode("|", $keyt);
+                $keytArray[] = $keyt;
             if (!empty($name))
-                $name = explode("|", $name);
+                $nameArray[] = $name;
+            writeLogs($element->keyt);
         }
 
-        $result = json_encode(array("keyt" => $keyt, "name" => $name));
+        $result = json_encode(array("keyt" => $keytArray, "name" => $nameArray));
         writeLogs("Return " . $result . "\n____________________");
 
     } catch (Exception $e) {

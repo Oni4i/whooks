@@ -30,7 +30,7 @@ function getCurrectPath() {
 
 function writeLogs($string) {
     try {
-        $dir = PATHFORLOG . "/" . date("m.d.y");
+        $dir = PATHFORLOG . "/" . date("Y-m-d");
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }

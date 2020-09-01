@@ -88,5 +88,39 @@ submit.addEventListener('click', function () {
         }
 
     })
-
 })
+
+function getKeyt(login, password) {
+
+    getAjaxRequest(`get_keyt&login=${login}&password=${password}`, function(response) {
+        generateKeyt();
+    })
+}
+
+function parseKeyt(data) {
+
+    try {
+        let parsedJson = JSON.parse(json);
+
+        let keytArray = parsedJson['keyt'];
+        let nameArray = parsedJson['name'];
+
+        if (cardsArray[0] == "" || tokensArray[0] == "") {
+            throw "Отсутвуют карты"
+        }
+        return keytArray, nameArray
+    }
+    catch (e) {
+        console.log(e.toString());
+    }
+}
+
+function generateKeyt(data, element) {
+
+    let resultArray = parseKeyt(data);
+
+    let keyt = resultArray.keyt;
+    let     
+
+
+}

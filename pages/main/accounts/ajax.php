@@ -59,4 +59,60 @@ if (isset($_GET['get_accounts_processing'])) {
 
     $returnResponse = array("response" => $responseAjax);
     echo json_encode($returnResponse);
+} else if (
+    isset($_GET['get_keyt'])
+    && isset($_GET['login'])
+    && isset($_GET['password'])
+) {
+
+    $url = $settings['processing_url'];
+    $program = $settings["processing_program"];
+    $payform = $settings["form_instant"];
+    $file = "direct.py";
+    $transact = getExtTransact();
+    $program_sign = md5( $settings['processing_skeys'] . $transact);
+
+    $login = utf8_encode($_GET['login']);
+    if ($login[0] == "+" || $login[0] == " ")
+        $login = substr($login, 1);
+
+    $password = encryptPassword($_GET['password'], $transact);
+    $params = "ext_transact=$transact&program_sign=$program_sign&program=$program&cabinet_login=$login&dkcp_protocol_version=LAST&lang=ru&password=$password&cmd=get_form_fields&payform=$payform";
+    $params .= "&login=$login";
+    $request = "$url/$file?$params";
+
+
+    writeLogs("Send request $url");
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $request);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    $out = curl_exec($curl);
+    curl_close($curl);
+
+    writeLogs("Response from processing " . $out);
+    try {
+        $xml = new SimpleXMLElement($out);
+        foreach ($xml->table->colvalues as $element) {
+            $keyt = $element->keyt;
+            $name = $element->name;
+
+            if (!empty($keyt))
+                $keyt = explode("|", $keyt);
+            if (!empty($name))
+                $name = explode("|", $name);
+        }
+
+        $result = json_encode(array("keyt" => $keyt, "name" => $name));
+        writeLogs("Return " . $result . "\n____________________");
+
+    } catch (Exception $e) {
+
+        writeLogs("Error  " . $e->getMessage() . "\n____________________");
+
+    }
+
+    echo empty($keyt) ? json_encode("Empty") : $result;
 }

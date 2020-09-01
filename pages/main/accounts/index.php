@@ -48,7 +48,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                         </div>
                         <div class="form-group">
                             <label for="inputPassword">Keyt</label>
-                            <input type="text" id="inputKeyt" class="form-control" required autofocus>
+                            <select class="form-control" id="exampleFormControlSelect2"></select>
                         </div>
 
                     </div>

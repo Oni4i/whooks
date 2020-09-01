@@ -91,8 +91,8 @@ function parseKeyt(data) {
         let keytArray = parsedJson['keyt'].map(keyt => keyt['0']);
         let nameArray = parsedJson['name'].map(name => name['0']);
 
-        if (keytArray[0] == "" || nameArray[0] == "")
-            throw "Отсутвуют карты"
+        if (keytArray[0] == "")
+            throw "Отсутствуют ключи"
 
         resultData['keyt'] = keytArray;
         resultData['name'] = nameArray;
@@ -110,7 +110,11 @@ function parseKeyt(data) {
 function createOptionKeyt(keyt, name) {
 
     let option = document.createElement('option');
-    option.innerText = `${keyt} ${name}`;
+    option.innerText = `${keyt}`;
+
+    if (name)
+        option.innerText += ` ${name}`;
+
     option.value = keyt;
 
     return option;

@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/accounts/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/accounts/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/accounts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/accounts/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/accounts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/accounts/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +89,7 @@
       <workItem from="1598876485121" duration="1416000" />
       <workItem from="1598902390793" duration="1381000" />
       <workItem from="1598949912575" duration="2486000" />
-      <workItem from="1598969218977" duration="5025000" />
+      <workItem from="1598969218977" duration="5593000" />
     </task>
     <servers />
   </component>

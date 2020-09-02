@@ -109,17 +109,17 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Кошельки</h2>
+                    <h2>Аккаунты</h2>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm">
                         <thead>
                         <tr id="trHead">
                             <th scope="col">#</th>
-                            <th scope="col">uid</th>
-                            <th scope="col">name</th>
-                            <th scope="col">login</th>
-                            <th scope="col">keyt</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Имя</th>
+                            <th scope="col">Логин</th>
+                            <th scope="col">Счёт</th>
                             <th scope="col"><button type="button" data-toggle="modal" data-target="#addModal" class="btn btn-success d-block mx-auto">Добавить</button></th>
                         </tr>
                         </thead>

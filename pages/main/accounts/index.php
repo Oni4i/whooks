@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 ?>
-    <title>Кошельки</title>
+    <title>Аккаунты</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <link href="../../../assets/dist/css/bootstrap.min.css" rel="stylesheet">

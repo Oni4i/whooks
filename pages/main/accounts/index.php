@@ -57,7 +57,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <button class="btn btn-primary" id="submit" type="submit" disabled="true"
+                    <button class="btn btn-primary" id="submit" type="submit" disabled
                             onsubmit="return false;">Отправить</button>
                 </div>
             </div>

@@ -1,4 +1,11 @@
 generateTableRows()
+
+
+let submit = document.getElementById('submit');
+let loginField = document.getElementById('inputLogin');
+let passwordField = document.getElementById('inputPassword');
+let keytsField = document.getElementById('inputKeyt');
+
 function generateTableRows() {
 
     getAjaxRequest("get_accounts_processing", function(response) {
@@ -94,6 +101,8 @@ function parseKeyt(data) {
         if (keytArray[0] == "")
             throw "Отсутствуют ключи"
 
+        submit.disabled = false;
+
         resultData['keyt'] = keytArray;
         resultData['name'] = nameArray;
         resultData['count'] = keytArray.length;
@@ -123,14 +132,13 @@ function createOptionKeyt(keyt, name) {
 
 
 function unlockButton() {
-
+    if (keytsField.value != '0')
+        submit.disabled = false;
+    else
+        submit.disabled = true;
 }
 
 
-let submit = document.getElementById('submit');
-let loginField = document.getElementById('inputLogin');
-let passwordField = document.getElementById('inputPassword');
-let keytsField = document.getElementById('inputKeyt');
 
 submit.addEventListener('click', function () {
 
@@ -193,6 +201,6 @@ keytsField.addEventListener('change', function() {
 
     if (keytsField.value != '0')
         submit.disabled = false;
-
-
+    else
+        submit.disabled = true;
 })

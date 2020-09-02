@@ -40,20 +40,57 @@ function createTableRow(code, uid, name, login, keyt) {
     let tableDataName = document.createElement('td');
     let tableDataLogin = document.createElement('td');
     let tableDataKeyt = document.createElement('td');
+    let tableDataDelete = document.createElement('td');
+    let deleteButton = document.createElement('button');
+
+    deleteButton.classList = 'btn btn-danger d-block mx-auto';
+    deleteButton.type = 'button';
+    deleteButton.dataset.account = code;
+    deleteButton.style.textAlign ="center";
 
     tableDataCode.innerText = code;
     tableDataUId.innerText = uid;
     tableDataName.innerText = name;
     tableDataLogin.innerText = login;
     tableDataKeyt.innerText = keyt;
+    deleteButton.innerText = 'Удалить';
+    tableDataDelete.appendChild(deleteButton);
 
     tableDataCode.scope = 'row';
+
+
+    deleteButton.addEventListener('click', function () {
+        getAjaxRequest("delete_account&id=" + code, function (response) {
+            try {
+                let parsedResponse = JSON.parse(response);
+
+                if (parsedResponse != null) {
+                    let responseCode = parsedResponse['response'];
+                    console.log(responseCode)
+                    if (responseCode == '200') {
+                        tr.remove();
+                        alert("Аккаунт удалён")
+                    } else if (responseCode == '1')
+                        alert("Аккаунт не был удалён")
+                    else
+                        alert("Неизвестный ответ")
+
+                }
+
+            } catch (e) {
+
+                alert("Неизвестная ошибка от сервера")
+            }
+        })
+    })
+
 
     tr.appendChild(tableDataCode);
     tr.appendChild(tableDataUId);
     tr.appendChild(tableDataName);
     tr.appendChild(tableDataLogin);
     tr.appendChild(tableDataKeyt);
+    tr.appendChild(tableDataDelete);
 
     document.getElementById('table_body').appendChild(tr);
 }

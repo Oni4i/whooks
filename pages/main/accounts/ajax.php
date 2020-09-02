@@ -119,4 +119,22 @@ if (isset($_GET['get_accounts_processing'])) {
     }
 
     echo empty($keyt) ? json_encode("Empty") : $result;
+} else if (
+    isset($_GET['delete_account'])
+    && isset($_GET['id'])
+) {
+
+    $responseAjax = '200';
+    $id = $_GET['id'];
+    $query = "delete from
+              processing_accounts
+              where
+              code=$id";
+
+    $isSuccessDelete = insertToDataBase($query);
+    if (!$isSuccessDelete)
+        $responseAjax = 1;
+
+    $responseAjax = json_encode(array('response' => $responseAjax));
+    echo $responseAjax;
 }

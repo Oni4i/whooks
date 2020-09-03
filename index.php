@@ -1,13 +1,18 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
 
 if (isset($_POST) && isset($_POST["auth"])) {
     $login = $_POST["login"];
-    $password = $_POST["password"];
+    $password = hash('sha256', $_POST["password"]);
 
     $isAuthRight = false;
-    if ($login == LOGIN && $password == PASSWORDCABINET) {
+
+    $userData = getDataByLogin($login);
+    writeLogs("password = $password");
+    if (isValidUserData($userData) && $password == $userData['password_hash']) {
         $_SESSION['auth'] = 'ok';
+        $_SESSION['user'] = $userData['code'];
         header("Location: /cabinet/pages/main");
     }
 }

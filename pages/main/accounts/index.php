@@ -72,7 +72,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
         </button>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="../index.html">Выйти</a>
+                <a class="nav-link" id="exitBtn" href="index.php">Выйти</a>
             </li>
         </ul>
     </nav>
@@ -131,7 +131,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
         </div>
     </div>
     <script src="../../../assets/dist/js/ajaxRequest.js"></script>
-    <script src="script.js?10"></script>
+    <script src="script.js?11"></script>
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
 ?>

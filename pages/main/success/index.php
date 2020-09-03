@@ -20,7 +20,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="../index.html">Выйти</a>
+            <a class="nav-link" id="exitBtn" href="index.php">Выйти</a>
         </li>
     </ul>
 </nav>
@@ -148,7 +148,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
         integrity="sha512-tPXUMumrKam4J6sFLWF/06wvl+Qyn27gMfmynldU730ZwqYkhT2dFUmttn2PuVoVRgzvzDicZ/KgOhWD+KAYQQ=="
         crossorigin="anonymous"></script>
 <script src="../../../assets/dist/js/ajaxRequest.js"></script>
-<script src="script.js"></script>
+<script src="script.js?5"></script>
 
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";

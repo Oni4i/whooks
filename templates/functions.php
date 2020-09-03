@@ -12,7 +12,6 @@ function encryptPassword($password, $transact) {
 }
 
 function getPageFromPath($url) {
-
     $url = explode('/', $url);
     $url =  $url[count($url)-2];
 
@@ -20,7 +19,6 @@ function getPageFromPath($url) {
 }
 
 function getCurrectPath() {
-
     $url = $_SERVER['REQUEST_URI'];
     $url = explode('?', $url);
     $url = $url[0];
@@ -40,3 +38,38 @@ function writeLogs($string) {
 
     }
 }
+
+function getDataByLogin($login) {
+    $query = "
+        select 
+        code, login, password_hash   
+        from
+        users
+        where
+        login = '$login'
+        limit 1
+    ";
+    $result = queryToDataBase($query);
+
+    return $result[0];
+}
+
+function isValidUserData($data) {
+    if (
+        isset($data['login']) && $login = $data['login']
+        && isset($data['password_hash']) && $password = $data['password_hash']
+        && isset($data['code']) && $code = $data['code']
+    ) {
+
+        return true;
+    }
+    return false;
+}
+
+
+
+/*
+ * $data = getDataByLogin($login)
+ * if (isValidUserData($data) && isPasswordCorrect($ {
+ *
+ */

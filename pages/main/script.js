@@ -371,3 +371,19 @@ function encode_utf8(s) {
 function decode_utf8(s) {
     return decodeURIComponent(escape(s));
 }
+
+
+document.getElementById('exitBtn').addEventListener('click', function() {
+
+    let pathArray = window.location.pathname.split('/');
+    let indexCabinet = pathArray.indexOf('cabinet');
+
+    pathArray = pathArray.slice(0, indexCabinet + 1);
+    let pathExit = pathArray.join('/') + '/templates/exit.php';
+
+    fetch(pathExit, {
+        method: "GET",
+        headers:{"content-type":"application/json"}
+    }).then(response => console.log(response));
+
+})

@@ -261,3 +261,17 @@ document.getElementById("reload_btn").addEventListener('click', function() {
     generateTableRows(false, 1, true);
 
 })
+document.getElementById('exitBtn').addEventListener('click', function() {
+
+    let pathArray = window.location.pathname.split('/');
+    let indexCabinet = pathArray.indexOf('cabinet');
+
+    pathArray = pathArray.slice(0, indexCabinet + 1);
+    let pathExit = pathArray.join('/') + '/templates/exit.php';
+
+    fetch(pathExit, {
+        method: "GET",
+        headers:{"content-type":"application/json"}
+    }).then(response => console.log(response));
+
+})

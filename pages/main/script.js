@@ -113,7 +113,6 @@ let card_list = document.getElementById("exampleFormControlSelect2");
 let parsedAccounts;
 
 let lastSelectedCode;
-//let lastSelectedCardToken;
 let hookId;
 let secretKey;
 
@@ -151,7 +150,7 @@ getAjaxResponse("get_accounts", insertAccounts, account_list, ["uid", "name"], f
 
 function getAjaxResponse(request, fillHtmlField = null, element = null, fieldForOut = null, callback = null) {
     //Get response
-    return fetch("ajax.php?" + request,
+    return fetch("ajax.php?" + request + `&user=${getCookie('user')}`,
         {
             method: "GET",
             headers:{"content-type":"application/json"}

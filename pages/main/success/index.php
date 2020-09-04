@@ -123,7 +123,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                             <th scope="col">Кошелек</th>
                             <th scope="col">Сумма перевода</th>
                             <th scope="col">Транзакция dkcp</th>
-                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody id="table_body">
@@ -147,8 +146,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.ru.min.js"
         integrity="sha512-tPXUMumrKam4J6sFLWF/06wvl+Qyn27gMfmynldU730ZwqYkhT2dFUmttn2PuVoVRgzvzDicZ/KgOhWD+KAYQQ=="
         crossorigin="anonymous"></script>
-<script src="../../../assets/dist/js/ajaxRequest.js"></script>
-<script src="script.js?5"></script>
+<script src="../../../assets/dist/js/ajaxRequest.js?2"></script>
+<script src="script.js?6"></script>
 
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";

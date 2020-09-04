@@ -4,9 +4,10 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
 $settings = optionsFromDataBase()[0];
 
-if (isset($_GET['get_accounts_processing'])) {
+if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
 
-    $query = "select code, uid, name, login, keyt from processing_accounts";
+    $user = $_GET['user'];
+    $query = "select code, uid, name, login, keyt from processing_accounts where user = $user";
     $accounts = queryToDataBase($query);
     $accounts = json_encode($accounts);
 
@@ -26,6 +27,7 @@ if (isset($_GET['get_accounts_processing'])) {
     && isset($_GET['login'])
     && isset($_GET['password'])
     && isset($_GET['keyt'])
+    && isset($_GET['user'])
 ) {
 
     $uid = $_GET['uid'];
@@ -33,6 +35,7 @@ if (isset($_GET['get_accounts_processing'])) {
     $login = $_GET['login'];
     $password = $_GET['password'];
     $keyt = $_GET['keyt'];
+    $user = $_GET['user'];
 
     $query = "insert 
               high_priority ignore
@@ -42,12 +45,14 @@ if (isset($_GET['get_accounts_processing'])) {
               name = '$name', 
               login = '$login',
               password = $password, 
-              keyt = '$keyt'
+              keyt = '$keyt',
+              user = $user
               on duplicate key update 
               name = '$name',
               login = '$login',
               password = $password, 
-              keyt = '$keyt'";
+              keyt = '$keyt',
+              user = $user";
     $isSuccessAccount = insertToDataBase($query);
 
     if ($isSuccessAccount) {

@@ -4,18 +4,33 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
 $settings = optionsFromDataBase()[0];
 
-if (isset($_GET['get_wallets'])) {
-    $query = "select wallets.code, wallet_phone,
-                wallet_token, wallet_token_valid_date,
-                processing_accounts.login, card_token
-                from wallets, processing_accounts
-                where wallets.processing_account = processing_accounts.code";
+if (
+    isset($_GET['get_wallets'])
+    && isset($_GET['user'])
+) {
+
+    $user = $_GET['user'];
+
+    $query = "select 
+              wallets.code, wallet_phone,
+              wallet_token, wallet_token_valid_date,
+              processing_accounts.login, card_token
+              from 
+              wallets, processing_accounts
+              where 
+              wallets.processing_account = processing_accounts.code
+              and
+              wallets.user=$user";
     $result = queryToDataBase($query);
     $result = json_encode($result);
 
     echo $result;
 
-} else if (isset($_GET['delete_wallet']) && isset($_GET['id']) && isset($_GET['wallet'])) {
+} else if (
+    isset($_GET['delete_wallet'])
+    && isset($_GET['id'])
+    && isset($_GET['wallet'])
+) {
 
     $wallet = $_GET['wallet'];
     $id = $_GET['id'];
@@ -61,9 +76,20 @@ if (isset($_GET['get_wallets'])) {
 
     echo json_encode(array("response"=>$responseAjax));
 
-} else if (isset($_GET['get_accounts'])) {
+} else if (
+    isset($_GET['get_accounts'])
+    && isset($_GET['user'])
+) {
 
-    $query = "select * from processing_accounts";
+    writeLogs('test21');
+
+    $user = $_GET['user'];
+
+    $query = "select *
+              from 
+              processing_accounts
+              where
+              user=$user";
 
     writeLogs("Отправляю запрос на получение аккаунтов...");
 
@@ -175,7 +201,8 @@ if (isset($_GET['get_wallets'])) {
 
 } else if (isset($_GET['save_web_hook']) && isset($_GET['code']) && isset($_GET['phone'])
     && isset($_GET['wallet_token']) && isset($_GET['date']) && isset($_GET['account'])
-    && isset($_GET['card_token']) && isset($_GET['hook_id']) && isset($_GET['secret_key'])) {
+    && isset($_GET['card_token']) && isset($_GET['hook_id']) && isset($_GET['secret_key'])
+    && isset($_GET['user'])) {
 
     $code = $_GET['code'];
     $phone = urldecode($_GET['phone']);
@@ -185,10 +212,11 @@ if (isset($_GET['get_wallets'])) {
     $card_token = urldecode($_GET['card_token']);
     $hook_id = urldecode($_GET['hook_id']);
     $secret_key = $_GET['secret_key'];
+    $user = $_GET['user'];
 
     $query = "insert high_priority ignore into wallets set wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
-                processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key'
-                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key'";
+                processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key', user=$user
+                on duplicate key update wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key', user=$user";
     $result = insertToDataBase($query);
     $result = json_encode($result);
 

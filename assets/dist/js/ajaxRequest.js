@@ -1,6 +1,5 @@
 function getAjaxRequest(request, callback) {
-
-    return fetch("ajax.php?" + request,
+    return fetch("ajax.php?" + request + `&user=${getCookie('user')}`,
         {
             method: "GET",
             headers:{"content-type":"application/json"},
@@ -16,4 +15,11 @@ function getAjaxRequest(request, callback) {
                 callback(response);
         })
         .catch((e) => console.log(e))
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }

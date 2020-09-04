@@ -134,8 +134,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
       </main>
     </div>
   </div>
-  <script src="../../assets/dist/js/ajaxRequest.js"></script>
-  <script src="script.js?4"></script>
+  <script src="../../assets/dist/js/ajaxRequest.js?2"></script>
+  <script src="script.js?5"></script>
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
 ?>

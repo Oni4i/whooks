@@ -2,10 +2,15 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
-if (isset($_GET['get_income_webhooks'])) {
+if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 
-    $query = "select inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text from income_webhooks
-            where next_operation  != 'dkcp_ok'";
+    $user = $_GET['user'];
+    $query = "select 
+              inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text from income_webhooks
+              where
+              next_operation  != 'dkcp_ok'
+              and
+              user = $user";
     $result = queryToDataBase($query);
     $result = json_encode($result);
 
@@ -45,7 +50,7 @@ if (isset($_GET['get_income_webhooks'])) {
 
     $responseAjax = '200';
     $inc = $_GET['id'];
-    $query = "insert income_webhooks_archive 
+    $query = "insert high_priority ignore into income_webhooks_archive 
     (
     select * 
     from income_webhooks 

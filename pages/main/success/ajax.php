@@ -12,6 +12,7 @@ if (
     && isset($_GET['wallet'])
     && isset($_GET['sum_start'])
     && isset($_GET['sum_end'])
+    && isset($_GET['user'])
 ) {
 
     $responseAjax = array();
@@ -23,6 +24,7 @@ if (
     $wallet = $_GET['wallet'];
     $sumStart = strlen($_GET['sum_start']) == 0 ? 0 : $_GET['sum_start'];
     $sumEnd = strlen($_GET['sum_end']) == 0 ? PHP_INT_MAX : $_GET['sum_end'];
+    $user = $_GET['user'];
 
     $query = "select  
               count(inc) as 'count'
@@ -33,7 +35,9 @@ if (
               and 
               (hook_date between '$dateStart 00:00:00' and '$dateEnd 23:59:59')
               and 
-              (hook_sum >= $sumStart and hook_sum <= $sumEnd)";
+              (hook_sum >= $sumStart and hook_sum <= $sumEnd)
+              and
+              user=$user";
 
     if ($wallet != "all")
         $query .= " and (hook_personId = $wallet)";
@@ -52,7 +56,9 @@ if (
               and 
               (hook_date between '$dateStart 00:00:00' and '$dateEnd 23:59:59')
               and 
-              (hook_sum >= $sumStart and hook_sum <= $sumEnd)";
+              (hook_sum >= $sumStart and hook_sum <= $sumEnd)
+              and
+              user = $user";
 
     if ($wallet != "all")
         $query .= " and (hook_personId = $wallet)";
@@ -65,7 +71,9 @@ if (
 
     echo $responseAjax;
 
-} else if (isset($_GET['generate_suc_page'])) {
+} else if (isset($_GET['generate_suc_page']) && isset($_GET['user'])) {
+
+    $user = $_GET['user'];
     $responseAjax = array();
     $currentDate = date("yy-m-d");
 
@@ -76,7 +84,9 @@ if (
               where 
               next_operation='dkcp_ok'
               and
-              (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')";
+              (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')
+              and 
+              user = $user";
     $resultCount = queryToDataBase($query);
 
     if ($countOfRows = $resultCount[0]['count'])
@@ -98,6 +108,8 @@ if (
               income_webhooks_archive
               where
               (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')
+              and 
+              user = $user
               order by inc DESC
               limit 0, 50";
     $resultRows = queryToDataBase($query);

@@ -28,7 +28,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                     <div class="container">
 
                         <div class="form-group">
-                            <label for="inputUId">UID</label>
+                            <label for="inputUId">ID</label>
                             <input type="text" id="inputUId" class="form-control" required autofocus>
                         </div>
 
@@ -47,7 +47,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
                             <input type="text" id="inputPassword" class="form-control" required autofocus>
                         </div>
                         <div class="form-group">
-                            <label for="inputKeyt">Keyt</label>
+                            <label for="inputKeyt">Счёт</label>
                             <select class="form-control" id="inputKeyt">
                                 <option>Пусто</option>
                             </select>
@@ -130,8 +130,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
             </main>
         </div>
     </div>
-    <script src="../../../assets/dist/js/ajaxRequest.js"></script>
-    <script src="script.js?11"></script>
+    <script src="../../../assets/dist/js/ajaxRequest.js?2"></script>
+    <script src="script.js?12"></script>
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
 ?>

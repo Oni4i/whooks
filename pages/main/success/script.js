@@ -206,7 +206,7 @@ function generateMovePage(isBack) {
 
             let arrayOfAllPages = document.getElementsByClassName('page-link');
 
-            console.log(currentPage)
+
             if (currentPage.Page == 1) {
                 return false
             }

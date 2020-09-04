@@ -12,7 +12,8 @@ if (isset($_POST) && isset($_POST["auth"])) {
     writeLogs("password = $password");
     if (isValidUserData($userData) && $password == $userData['password_hash']) {
         $_SESSION['auth'] = 'ok';
-        $_SESSION['user'] = $userData['code'];
+        $_COOKIE['user'] = $userData['code'];
+        setcookie('user', $userData['code'], 0, '/');
         header("Location: /cabinet/pages/main");
     }
 }

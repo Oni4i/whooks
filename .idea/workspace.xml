@@ -20,12 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b16eeb-c244-42ed-9563-1825e1fcbacc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/exit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dist/js/ajaxRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dist/js/ajaxRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.sample.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.sample.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/accounts/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/accounts/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/accounts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/accounts/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/error/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/error/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/error/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/error/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/success/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/success/ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/success/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/success/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/main/success/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/success/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/db.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,19 +65,20 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/main/error" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\error" />
-      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\success" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main" />
       <recent name="Z:\openServer\domains\gate\cabinet\templates" />
       <recent name="Z:\openServer\domains\gate\cabinet\pages\main\add" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\openServer\domains\gate\cabinet" />
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\error" />
+      <recent name="Z:\openServer\domains\gate\cabinet\pages\main\success" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -101,6 +111,7 @@
       <workItem from="1599053037259" duration="440000" />
       <workItem from="1599059647039" duration="1389000" />
       <workItem from="1599116920127" duration="4917000" />
+      <workItem from="1599204095493" duration="6794000" />
     </task>
     <servers />
   </component>
@@ -144,12 +155,12 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="749" y="263" key="NewPhpClassDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1599120873771" />
-    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1599121304192">
+    <state x="829" y="464" key="NewPhpFileDialog" timestamp="1599204922667">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="670" y="371" key="NewPhpFileDialog/62.0.1474.864/-1920.0.1920.1040@62.0.1474.864" timestamp="1598869773114" />
     <state x="670" y="371" key="NewPhpFileDialog/62.0.1474.864@62.0.1474.864" timestamp="1598531844590" />
-    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1599121304192" />
+    <state x="829" y="464" key="NewPhpFileDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1599204922667" />
     <state x="492" y="184" key="SettingsEditor" timestamp="1597137034478">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

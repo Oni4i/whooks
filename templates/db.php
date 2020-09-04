@@ -6,7 +6,7 @@ function connectToDb() {
     $mysqli = new mysqli(HOST, USERNAMEDB, PASSWORDDB, DBNAME);
 
     if ($mysqli->connect_errno) {
-        echo "Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        writeLogs("Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
     }
 
     return $mysqli;

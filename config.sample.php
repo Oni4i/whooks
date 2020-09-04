@@ -4,9 +4,7 @@ define("USERNAMEDB", "");
 define("PASSWORDDB", "");
 define("DBNAME", "");
 
-define("LOGIN", "");
-define("PASSWORDCABINET", "");
-
 define("URLFORREPEAT", "");
 
-define("DIRFORLOG", "");
+define("PATHFORLOG", "");
+define("LOGNAME", "");

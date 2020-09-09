@@ -9,7 +9,6 @@
 * URL_FOR_REPEAT - url для повторений;
 * PATH_FOR_LOG - путь к логу;
 * LOG_NAME - название логов;
-* QIWI_TOKEN - QIWI-токен.
 3. Создать таблицы income_webhooks, income_webhooks_archive, processing_accounts, settings, users и wallets в базе данных скриптами:
 * CREATE TABLE `income_webhooks` (
     `inc` int NOT NULL AUTO_INCREMENT,

@@ -9,6 +9,4 @@ define("URL_FOR_REPEAT",   "");
 define("PATH_FOR_LOG",     "");
 define("LOG_NAME",         "");
 
-define("QIWI_TOKEN",       "");
-
 ?>

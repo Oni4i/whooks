@@ -8,7 +8,9 @@ $settings = optionsFromDataBase()[0];
 if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
 
     $user = $_GET['user'];
-    $query = "select code, uid, name, login, keyt from processing_accounts where user = $user";
+    $query = "select code, uid, name, login, keyt 
+              from processing_accounts pa
+              where pa.user=$user";
     $accounts = queryToDataBase($query);
     $accounts = json_encode($accounts);
 
@@ -38,10 +40,8 @@ if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
     $keyt = $_GET['keyt'];
     $user = $_GET['user'];
 
-    $query = "insert 
-              high_priority ignore
-              into
-              processing_accounts 
+    $query = "insert high_priority ignore
+              into processing_accounts 
               set uid = '$uid', 
               name = '$name', 
               login = '$login',
@@ -132,10 +132,8 @@ if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
 
     $responseAjax = '200';
     $id = $_GET['id'];
-    $query = "delete from
-              processing_accounts
-              where
-              code=$id";
+    $query = "delete from processing_accounts
+              where KEY code=$id";
 
     $isSuccessDelete = insertToDataBase($query);
     if (!$isSuccessDelete)

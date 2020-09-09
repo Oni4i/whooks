@@ -1,6 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "const.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "functions.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "db.php";
 
 if (
     isset($_GET['get_suc_webhooks'])

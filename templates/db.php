@@ -1,9 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/const.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
 
 function connectToDb() {
-    $mysqli = new mysqli(HOST, USERNAMEDB, PASSWORDDB, DBNAME);
+    $mysqli = new mysqli(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_NAME);
 
     if ($mysqli->connect_errno) {
         writeLogs("Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
@@ -48,3 +46,5 @@ function optionsFromDataBase() {
 
     return queryToDataBase($query);
 }
+
+?>

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "header.php";
 ?>
     <title>Аккаунты</title>
 
@@ -133,5 +133,5 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
     <script src="../../../assets/dist/js/ajaxRequest.js?2"></script>
     <script src="script.js?12"></script>
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "footer.php";
 ?>

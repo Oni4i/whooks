@@ -1,10 +1,10 @@
 <?php
 session_start();
 ob_start();
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/const.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/functions.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/auth.php";
-//require_once $_SERVER["DOCUMENT_ROOT"] . "/include/dkcp.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "const.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "functions.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "db.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "auth.php";
 
 ?>
 <!DOCTYPE html>

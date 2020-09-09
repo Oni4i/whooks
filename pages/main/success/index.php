@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "header.php";
 ?>
     <title>Успешные хуки</title>
 
@@ -150,4 +150,5 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 <script src="script.js?6"></script>
 
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "footer.php";
+?>

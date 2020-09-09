@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "header.php";
 ?>
     <title>Ошибочные хуки</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
@@ -89,4 +89,5 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
 <script src="script.js?5"></script>
 
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "footer.php";
+?>

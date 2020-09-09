@@ -20,19 +20,18 @@ if (!isset($_COOKIE["auth"]) && getPageFromPath(getCurrectPath()) != "cabinet") 
 //ACTUAL
 
 
-
-if (getPageFromPath(getCurrectPath()) == "cabinet") {
+if (getCurrectPath() == "/" || getCurrectPath() == "/index.php") {
 
     if (isset($_SESSION["auth"]) && $_SESSION["auth"] == "ok") {
 
-        header("Location: /cabinet/pages/main");
+        header("Location: /pages/main");
     }
 } else {
 
     if (isset($_SESSION["auth"]) && $_SESSION["auth"] == "ok") {
 
     } else {
-        header("Location: /cabinet");
+        header("Location: /");
     }
 }
 

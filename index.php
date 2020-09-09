@@ -1,6 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/header.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/db.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "header.php";
 
 if (isset($_POST) && isset($_POST["auth"])) {
     $login = $_POST["login"];
@@ -14,7 +13,7 @@ if (isset($_POST) && isset($_POST["auth"])) {
         $_SESSION['auth'] = 'ok';
         $_COOKIE['user'] = $userData['code'];
         setcookie('user', $userData['code'], 0, '/');
-        header("Location: /cabinet/pages/main");
+        header("Location: /pages/main");
     }
 }
 
@@ -43,7 +42,7 @@ if (isset($_POST) && isset($_POST["auth"])) {
                 <div class="form-group">
                     <h4 align="center" style="color: red">Неверный логин/пароль</h4>
                 </div>
-            <?}
+            <?php }
             ?>
             <div class="blockTextAuth">
                 <h1 class="text-center">Авторизация</h1>
@@ -64,18 +63,14 @@ if (isset($_POST) && isset($_POST["auth"])) {
                     <input type="checkbox" value="remember-me"> Запомнить меня
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="auth">Войти></a></button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="auth">Войти></button>
             <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
         </form>
     </div>
 </div>
 
-
-
-
-
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/cabinet/templates/footer.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "footer.php";
 ?>
 
 

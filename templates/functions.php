@@ -28,12 +28,12 @@ function getCurrectPath() {
 
 function writeLogs($string) {
     try {
-        $dir = PATHFORLOG . "/" . date("Y-m-d");
+        $dir = PATH_FOR_LOG . "/" . date("Y-m-d");
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }
         $log = date('Y-m-d H:i:s') . " " . $string;
-        file_put_contents($dir . '/' . LOGNAME, $log . PHP_EOL, FILE_APPEND);
+        file_put_contents($dir . '/' . LOG_NAME, $log . PHP_EOL, FILE_APPEND);
     } catch (Exception $e) {
 
     }
@@ -66,10 +66,4 @@ function isValidUserData($data) {
     return false;
 }
 
-
-
-/*
- * $data = getDataByLogin($login)
- * if (isValidUserData($data) && isPasswordCorrect($ {
- *
- */
+?>

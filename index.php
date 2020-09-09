@@ -47,7 +47,6 @@ if (isset($_POST) && isset($_POST["auth"])) {
             <div class="blockTextAuth">
                 <h1 class="text-center">Авторизация</h1>
             </div>
-
             <div class="form-group">
                 <label for="exampleInputlogin">Логин</label>
                 <input type="login" id="inputLogin" class="form-control" placeholder="Login" name="login" value="<?= isset($isAuthRight) ? $_POST['login'] : ''?>" required autofocus>

@@ -51,14 +51,14 @@ function getDataByLogin($login) {
     ";
     $result = queryToDataBase($query);
 
-    return $result[0];
+    return !empty($result) ? $result[0] : $result;
 }
 
 function isValidUserData($data) {
     if (
-        isset($data['login']) && $login = $data['login']
-        && isset($data['password_hash']) && $password = $data['password_hash']
-        && isset($data['code']) && $code = $data['code']
+        isset($data['login'])
+        && isset($data['password_hash'])
+        && isset($data['code'])
     ) {
 
         return true;

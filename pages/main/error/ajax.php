@@ -6,9 +6,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "templates" . DIR
 if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 
     $user = $_GET['user'];
-    $query = "select inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text from income_webhooks
-              where next_operation  != 'dkcp_ok'
-              and user = $user";
+    $query = "SELECT inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text FROM income_webhooks
+              WHERE next_operation  != 'dkcp_ok'
+              AND user = $user";
     $result = queryToDataBase($query);
     $result = json_encode($result);
 
@@ -17,19 +17,19 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 } else if (isset($_GET['repeat_operation']) && isset($_GET['id'])) {
 
     $code = $_GET['id'];
-    $query = "select hook_txnId
-              from income_webhooks
-              where inc=$code
-              limit 1";
+    $query = "SELECT hook_txnId
+              FROM income_webhooks
+              WHERE inc=$code
+              LIMIT 1";
     $result = queryToDataBase($query);
 
     $responseAjax = '200';
 
     if ($txnId = $result[0]['hook_txnId']) {
 
-        $query = "update income_webhooks 
-                  set next_operation='repeat' 
-                  where inc=$code";
+        $query = "UPDATE income_webhooks 
+                  SET next_operation='repeat' 
+                  WHERE inc=$code";
         $result = insertToDataBase($query);
 
         if (!$result)
@@ -53,18 +53,16 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 
     $responseAjax = '200';
     $inc = $_GET['id'];
-    $query = "insert high_priority ignore into income_webhooks_archive 
-              (
-              select * 
-              from income_webhooks 
-              where inc = $inc
-              )";
+    $query = "INSERT high_priority ignore INTO income_webhooks_archive 
+              (SELECT * 
+              FROM income_webhooks 
+              WHERE inc = $inc)";
     $result = insertToDataBase($query);
 
     if ($result) {
 
-        $query = "delete from income_webhooks 
-                  where inc=$inc";
+        $query = "DELETE FROM income_webhooks 
+                  WHERE inc=$inc";
         $resultDelete = insertToDataBase($query);
 
         if (!$resultDelete)

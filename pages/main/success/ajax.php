@@ -27,12 +27,12 @@ if (
     $sumEnd = strlen($_GET['sum_end']) == 0 ? PHP_INT_MAX : $_GET['sum_end'];
     $user = $_GET['user'];
 
-    $query = "select count(inc) as 'count'
-              from income_webhooks_archive
-              where (next_operation='dkcp_ok')
-              and (hook_date between '$dateStart 00:00:00' and '$dateEnd 23:59:59')
-              and (hook_sum >= $sumStart and hook_sum <= $sumEnd)
-              and user=$user";
+    $query = "SELECT count(inc) AS 'count'
+              FROM income_webhooks_archive
+              WHERE (next_operation='dkcp_ok')
+              AND (hook_date BETWEEN '$dateStart 00:00:00' AND '$dateEnd 23:59:59')
+              AND (hook_sum >= $sumStart AND hook_sum <= $sumEnd)
+              AND user=$user";
 
     if ($wallet != "all")
         $query .= " and (hook_personId = $wallet)";
@@ -42,18 +42,18 @@ if (
     if ($resultCount = $resultCount[0]['count'])
         $responseAjax['count'] = $resultCount;
 
-    $query = "select inc, hook_txnId, hook_date, hook_sum, hook_personId, dkcp_sum, dkcp_transact 
-              from income_webhooks_archive
-              where (next_operation='dkcp_ok')
-              and (hook_date between '$dateStart 00:00:00' and '$dateEnd 23:59:59')
-              and (hook_sum >= $sumStart and hook_sum <= $sumEnd)
-              and user = $user";
+    $query = "SELECT inc, hook_txnId, hook_date, hook_sum, hook_personId, dkcp_sum, dkcp_transact 
+              FROM income_webhooks_archive
+              WHERE (next_operation='dkcp_ok')
+              AND (hook_date BETWEEN '$dateStart 00:00:00' AND '$dateEnd 23:59:59')
+              AND (hook_sum >= $sumStart AND hook_sum <= $sumEnd)
+              AND user = $user";
 
     if ($wallet != "all")
-        $query .= " and (hook_personId = $wallet)";
+        $query .= " AND (hook_personId = $wallet)";
 
-    $query .= " order by inc DESC
-                limit $skip, $numberOfRows";
+    $query .= " ORDER BY inc DESC
+                LIMIT $skip, $numberOfRows";
     $result = queryToDataBase($query);
     $responseAjax['rows'] = $result;
     $responseAjax = json_encode($responseAjax);
@@ -66,11 +66,11 @@ if (
     $responseAjax = array();
     $currentDate = date("yy-m-d");
 
-    $query = "select count(inc) as 'count' 
-              from income_webhooks_archive 
-              where next_operation='dkcp_ok'
-              and (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')
-              and user = $user";
+    $query = "SELECT count(inc) AS 'count' 
+              FROM income_webhooks_archive 
+              WHERE next_operation='dkcp_ok'
+              AND (hook_date BETWEEN '$currentDate 00:00:00' AND '$currentDate 23:59:59')
+              AND user = $user";
     $resultCount = queryToDataBase($query);
 
     if ($countOfRows = $resultCount[0]['count'])
@@ -78,8 +78,8 @@ if (
     else
         $responseAjax['count'] = 0;
 
-    $query = "select distinct hook_personId
-              from income_webhooks_archive";
+    $query = "SELECT DISTINCT hook_personId
+              FROM income_webhooks_archive";
     $resultWallets = queryToDataBase($query);
 
     if (count($resultWallets) > 0)
@@ -87,12 +87,12 @@ if (
     else
         $responseAjax['wallets'] = [];
 
-    $query = "select inc, hook_txnId, hook_date, hook_sum, hook_personId, dkcp_sum, dkcp_transact 
-              from income_webhooks_archive
-              where (hook_date between '$currentDate 00:00:00' and '$currentDate 23:59:59')
-              and user = $user
-              order by inc DESC
-              limit 0, 50";
+    $query = "SELECT inc, hook_txnId, hook_date, hook_sum, hook_personId, dkcp_sum, dkcp_transact 
+              FROM income_webhooks_archive
+              WHERE (hook_date BETWEEN '$currentDate 00:00:00' AND '$currentDate 23:59:59')
+              AND user = $user
+              ORDER BY inc DESC
+              LIMIT 0, 50";
     $resultRows = queryToDataBase($query);
 
     if (count($resultRows) > 0)

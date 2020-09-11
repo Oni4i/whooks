@@ -13,11 +13,11 @@ if (
     $user = $_GET['user'];
 
     $query = "SELECT w.code, wallet_phone,
-              wallet_token, wallet_token_valid_date,
-              pa.login, card_token
-              FROM wallets AS w, processing_accounts AS pa
-              WHERE w.processing_account = pa.code
-              AND w.user=$user";
+                     wallet_token, wallet_token_valid_date,
+                     pa.login, card_token
+                FROM wallets AS w, processing_accounts AS pa
+               WHERE w.processing_account = pa.code
+                 AND w.user=$user";
     $result = queryToDataBase($query);
     $result = json_encode($result);
 
@@ -34,8 +34,8 @@ if (
     $responseAjax = '200';
 
     $query = "SELECT w.hook_id 
-              FROM wallets as w
-              WHERE w.code=$id";
+                FROM wallets as w
+               WHERE w.code=$id";
     $result = queryToDataBase($query);
 
     $hookId = $result[0]['hook_id'];
@@ -62,7 +62,7 @@ if (
         writeLogs("Hook was deleted");
 
         $query = "DELETE FROM wallets AS w
-                  WHERE w.code=$id";
+                   WHERE w.code=$id";
         $result = insertToDataBase($query);
 
         if (!$result)
@@ -84,8 +84,8 @@ if (
     $user = $_GET['user'];
 
     $query = "SELECT *
-              FROM processing_accounts AS pa
-              WHERE pa.user=$user";
+                FROM processing_accounts AS pa
+               WHERE pa.user=$user";
 
     writeLogs("Отправляю запрос на получение аккаунтов...");
 
@@ -211,9 +211,9 @@ if (
     $user = $_GET['user'];
 
     $query = "INSERT high_priority ignore INTO wallets
-              SET wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
-              processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key', user=$user
-              ON duplicate KEY UPDATE wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key', user=$user";
+                 SET wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
+                     processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key', user=$user
+                  ON duplicate KEY UPDATE wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key', user=$user";
     $result = insertToDataBase($query);
     $result = json_encode($result);
 

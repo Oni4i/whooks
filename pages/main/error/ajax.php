@@ -7,8 +7,8 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 
     $user = $_GET['user'];
     $query = "SELECT inc, hook_date, hook_sum, hook_personId, account_balance, next_operation, hook_txnId, dkcp_result_text FROM income_webhooks
-              WHERE next_operation  != 'dkcp_ok'
-              AND user = $user";
+               WHERE next_operation  != 'dkcp_ok'
+                 AND user = $user";
     $result = queryToDataBase($query);
     $result = json_encode($result);
 
@@ -18,9 +18,9 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
 
     $code = $_GET['id'];
     $query = "SELECT hook_txnId
-              FROM income_webhooks
-              WHERE inc=$code
-              LIMIT 1";
+                FROM income_webhooks
+               WHERE inc=$code
+               LIMIT 1";
     $result = queryToDataBase($query);
 
     $responseAjax = '200';
@@ -28,8 +28,8 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
     if ($txnId = $result[0]['hook_txnId']) {
 
         $query = "UPDATE income_webhooks 
-                  SET next_operation='repeat' 
-                  WHERE inc=$code";
+                     SET next_operation='repeat' 
+                   WHERE inc=$code";
         $result = insertToDataBase($query);
 
         if (!$result)
@@ -55,14 +55,14 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
     $inc = $_GET['id'];
     $query = "INSERT high_priority ignore INTO income_webhooks_archive 
               (SELECT * 
-              FROM income_webhooks 
-              WHERE inc = $inc)";
+                 FROM income_webhooks 
+                WHERE inc = $inc)";
     $result = insertToDataBase($query);
 
     if ($result) {
 
         $query = "DELETE FROM income_webhooks 
-                  WHERE inc=$inc";
+                   WHERE inc=$inc";
         $resultDelete = insertToDataBase($query);
 
         if (!$resultDelete)

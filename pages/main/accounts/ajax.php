@@ -42,18 +42,8 @@ if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
 
     $query = "INSERT high_priority ignore
                 INTO processing_accounts 
-                 SET uid = '$uid', 
-                     name = '$name', 
-                     login = '$login',
-                     password = $password, 
-                     keyt = '$keyt',
-                     user = $user
-                  ON duplicate KEY UPDATE
-                     name = '$name',
-                     login = '$login',
-                     password = $password, 
-                     keyt = '$keyt',
-                     user = $user";
+                 SET uid = '$uid', name = '$name', login = '$login', password = $password, keyt = '$keyt', user = $user
+                  ON duplicate KEY UPDATE name = '$name', login = '$login', password = $password, keyt = '$keyt', user = $user";
     $isSuccessAccount = insertToDataBase($query);
 
     if ($isSuccessAccount) {
@@ -133,7 +123,7 @@ if (isset($_GET['get_accounts_processing']) && $_GET['user']) {
     $responseAjax = '200';
     $id = $_GET['id'];
     $query = "DELETE FROM processing_accounts
-               WHERE code=$id";
+               WHERE code = $id";
 
     $isSuccessDelete = insertToDataBase($query);
     if (!$isSuccessDelete)

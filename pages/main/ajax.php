@@ -12,9 +12,7 @@ if (
 
     $user = $_GET['user'];
 
-    $query = "SELECT w.code, wallet_phone,
-                     wallet_token, wallet_token_valid_date,
-                     pa.login, card_token
+    $query = "SELECT w.code, wallet_phone, wallet_token, wallet_token_valid_date, pa.login, card_token
                 FROM wallets AS w, processing_accounts AS pa
                WHERE w.processing_account = pa.code
                  AND w.user=$user";
@@ -213,7 +211,8 @@ if (
     $query = "INSERT high_priority ignore INTO wallets
                  SET wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date',
                      processing_account = $account, card_token = '$card_token', hook_id = '$hook_id', secret_key = '$secret_key', user=$user
-                  ON duplicate KEY UPDATE wallet_phone = '$phone', wallet_token = '$wallet_token', wallet_token_valid_date = '$date', secret_key = '$secret_key', user=$user";
+                  ON duplicate KEY UPDATE wallet_phone = '$phone', wallet_token = '$wallet_token', 
+                                          wallet_token_valid_date = '$date', secret_key = '$secret_key', user=$user";
     $result = insertToDataBase($query);
     $result = json_encode($result);
 

@@ -62,7 +62,7 @@ if (isset($_GET['get_income_webhooks']) && isset($_GET['user'])) {
     if ($result) {
 
         $query = "DELETE FROM income_webhooks 
-                   WHERE inc=$inc";
+                   WHERE inc = $inc";
         $resultDelete = insertToDataBase($query);
 
         if (!$resultDelete)
